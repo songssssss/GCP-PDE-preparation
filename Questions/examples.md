@@ -71,3 +71,33 @@ Use managed export, and then import to Cloud Datastore in a separate project und
 Use managed export, and then import the data into a BigQuery table created just for that export, and delete temporary export files.
 Write an application that uses Cloud Datastore client libraries to read all the entities. Treat each entity as a BigQuery table row via BigQuery streaming insert. Assign an export timestamp for each export, and attach it as an extra column for each row. Make sure that the BigQuery table is partitioned using the export timestamp column.
 Write an application that uses Cloud Datastore client libraries to read all the entities. Format the exported data into a JSON file. Apply compression before storing the data in Cloud Source Repositories.
+
+---
+Question 35
+
+Your United States-based company has created an application for assessing and responding to user actions. The primary table's data volume grows by 250,000 records per second. Many third parties use your application's APIs to build the functionality into their own frontend applications. Your application's APIs should comply with the following requirements:
+- Single global endpoint
+- ANSI SQL support
+- Consistent access to the most up-to-date data
+
+What should you do?
+Implement BigQuery with no region selected for storage or processing.
+Implement Cloud Spanner with the leader in North America and read-only replicas in Asia and Europe.
+Implement Cloud SQL for PostgreSQL with the master in Norht America and read replicas in Asia and Europe.
+Implement Cloud Bigtable with the primary cluster in North America and secondary clusters in Asia and Europe.
+
+
+
+
+Answer is Implement Cloud Spanner with the leader in North America and read-only replicas in Asia and Europe.
+
+Cloud Spanner has three types of replicas: read-write replicas, read-only replicas, and witness replicas. Bigquery cannot support 250K data ingestion/second , as ANSI SQL support is required , no other options left except Spanner.
+
+---
+
+
+
+
+
+
+
