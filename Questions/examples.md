@@ -1,3 +1,15 @@
+## Question 22
+
+Your financial services company is moving to cloud technology and wants to store 50 TB of financial time-series data in the cloud. This data is updated frequently and new data will be streaming in all the time. Your company also wants to move their existing Apache Hadoop jobs to the cloud to get insights into this data.
+
+Which product should they use to store the data?
+Cloud Bigtable
+Google BigQuery
+Google Cloud Storage
+Google Cloud Datastore
+Explain the above produects on their functions
+
+---
 For storing 50 TB of frequently updated financial time-series data and supporting Apache Hadoop jobs for insights, **Cloud Bigtable** is the most appropriate choice. Here’s an overview of each of the mentioned products and why Cloud Bigtable stands out for this use case:
 
 ### 1. **Cloud Bigtable**
