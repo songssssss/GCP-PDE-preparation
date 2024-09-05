@@ -57,3 +57,17 @@ For storing 50 TB of frequently updated financial time-series data and supportin
 - It integrates well with Apache Hadoop for running analytical jobs and gaining insights from your data.
 
 While **Google BigQuery** and **Google Cloud Storage** are powerful tools for data analytics and storage, respectively, they are not as optimized for real-time data ingestion and frequent updates as Cloud Bigtable. **Google Cloud Datastore** is more suited for applications requiring flexible schema and hierarchical data rather than high-frequency time-series data.
+
+
+---
+## Question 33
+
+You decided to use Cloud Datastore to ingest vehicle telemetry data in real time. You want to build a storage system that will account for the long-term data growth, while keeping the costs low. You also want to create snapshots of the data periodically, so that you can make a point-in-time (PIT) recovery, or clone a copy of the data for Cloud Datastore in a different environment. You want to archive these snapshots for a long time.
+
+Which two methods can accomplish this?
+(Choose two.)
+Use managed export, and store the data in a Cloud Storage bucket using Nearline or Coldline class.
+Use managed export, and then import to Cloud Datastore in a separate project under a unique namespace reserved for that export.
+Use managed export, and then import the data into a BigQuery table created just for that export, and delete temporary export files.
+Write an application that uses Cloud Datastore client libraries to read all the entities. Treat each entity as a BigQuery table row via BigQuery streaming insert. Assign an export timestamp for each export, and attach it as an extra column for each row. Make sure that the BigQuery table is partitioned using the export timestamp column.
+Write an application that uses Cloud Datastore client libraries to read all the entities. Format the exported data into a JSON file. Apply compression before storing the data in Cloud Source Repositories.
