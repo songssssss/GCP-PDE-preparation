@@ -222,7 +222,7 @@ Refer to this [link](https://cloud.google.com/bigquery/docs/introduction) for do
 - Can directly run query on cloud storage. No need for dataflow.
 - BQ is optimised for reads
 - **BigQuery Data Transfer Service** can only transfer data into BigQuery, not out of it
-- You can load data into BigQuery via two options: batch loading (free) and streaming (costly).
+- You can load data into BigQuery via two options: batch loading (free) and streaming (costly). Both Batch and Streaming: BigQuery supports data ingestion in both batch and streaming modes. Batch mode is used for large, periodic data loads, while streaming mode allows for continuous data updates in real time.
 - When using the Cloud Console, files loaded from a local data source cannot exceed 10 MB.
 - BigQuery maintains a 7 day history of changes so that you can query a point-in time snapshot of data
 - Wildcard tables - Used if you want to union all similar tables with similar names. ’*’ (e.g. project.dataset.Table*)
