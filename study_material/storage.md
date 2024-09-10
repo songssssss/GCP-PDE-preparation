@@ -30,6 +30,8 @@
 	 - Temporary access for a person with or without google account.
 	 - Max limit = 10 days
 	 - Access can be given **for objects** using signed url.
+-  Multi-region increases high availability and pdf can be stored in gcs.
+  
 
 ## DataStore
  - NoSQL DB, serverless, highly scalable
