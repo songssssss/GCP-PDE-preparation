@@ -71,7 +71,8 @@ You can refer to [this](https://cloud.google.com/dataproc/) for docs.
  - IAM - 
 	 - Service accounts used with Cloud Dataproc must have Dataproc/Dataproc Worker role (or have all the permissions granted by Dataproc Worker role).
 		 - Need permissions to read and write to Google Cloud Storage, and to write to Google Cloud Logging
-
+- The YARN ResourceManager and the HDFS NameNode interfaces are available on a Cloud Dataproc cluster master node. The cluster master-host-name is the name of your Cloud Dataproc cluster followed by an -m suffixfor example, if your cluster is named "my-cluster", the master-host-name would be "my-cluster-m".
+  
 ## Pub/Sub
 You can refer to [this](https://cloud.google.com/pubsub/docs/overview) for docs.
  - Replacement for **Kafka**
