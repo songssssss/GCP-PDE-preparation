@@ -37,7 +37,15 @@ You can refer to [this](https://cloud.google.com/dataflow) for docs.
 - **PCollections**: abstraction that represents a potentially distributed, multi-element data set, that acts as the pipeline’s data. PCollection objects represent input, intermediate, and output data. The edges of the pipeline.
 - **Transforms**: operations in pipeline. A transform takes a PCollection(s) as input, performs an operation that you specify on each element in that collection, and produces a new output PCollection. Composite transforms are multiple transforms: combining, mapping, shuffling, reducing, or statistical analysis.
 - **Pipeline I/O**: the source/sink, where the data flows in and out. Supports read and write transforms for a number of common data storage types, as well as custom.
-- **Windowing**: Windowing a PCollection divides the elements into windows based on the associated event time for each element.
+- **Windowing**: Windowing a PCollection divides the elements into windows based on the associated event time for each element. Dataflow's default windowing behavior is to assign all elements of a PCollection to a single, global window, even for unbounded PCollections. Global Window: By default, Dataflow applies a Global Window to unbounded data sets. This means that all the data is treated as a single, continuous window. This default behavior is useful for scenarios where you need to process all incoming data together without explicit time-based or event-based partitioning.
+- Key Points About Global Windowing:
+	- **Unified Data View: All elements of the unbounded data stream are included in one global window, which simplifies processing if no specific windowing or time-based logic is needed.
+	- **Custom Windowing: While the global window is the default, Apache Beam (and thus Dataflow) provides flexibility to define custom windowing strategies. For example, you can specify:
+		- Fixed Windows: Divide data into fixed-size time intervals.
+		- Sliding Windows: Overlap time intervals with configurable slide durations.
+		- Session Windows: Group data based on periods of activity or inactivity.
+	- Triggers and Accumulation: In conjunction with windowing, you can define triggers that determine when to emit results from the window. With global windowing, you might not use triggers extensively unless you have specific needs for processing and output.
+	- Customizable: You can override the default global windowing behavior by specifying your own windowing strategy in your Apache Beam pipeline if you need more granular control over how data is partitioned and processed.
 - **Triggers**: Allows specifying a trigger to control when (in processing time) results for the given window can be produced. Triggers determines when a Window's contents should be output based on certain criteria being met. Types of triggers are :  
 	 - Time based triggers
 	 - Data Driven triggers
