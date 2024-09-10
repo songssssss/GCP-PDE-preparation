@@ -95,6 +95,8 @@
 - DB Migration Service (DMS) available
 - To shift some workloads, `read replicas` can be made.
 - Cloud SQL supports transactions as well as **analysis through a _BI tool_**.
+- Cloud SQL supports MySQL 5.6 or 5.7, and provides up to 624 GB of RAM and 30 TB of data storage, with the option to automatically increase the storage size as needed.
+
 
 ## Cloud Spanner
 - Can be scaled globally.
