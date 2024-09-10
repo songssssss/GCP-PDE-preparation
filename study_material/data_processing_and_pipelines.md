@@ -73,8 +73,8 @@ You can refer to [this](https://cloud.google.com/dataproc/) for docs.
 	 - Service accounts used with Cloud Dataproc must have Dataproc/Dataproc Worker role (or have all the permissions granted by Dataproc Worker role).
 		 - Need permissions to read and write to Google Cloud Storage, and to write to Google Cloud Logging
 - The YARN ResourceManager and the HDFS NameNode interfaces are available on a Cloud Dataproc cluster master node. The cluster master-host-name is the name of your Cloud Dataproc cluster followed by an -m suffixfor example, if your cluster is named "my-cluster", the master-host-name would be "my-cluster-m".
- - A Cloud Dataproc Viewer is limited in its actions based on its role. A viewer can only list clusters, get cluster details, list jobs, get job details, list operations, and get operation details.
-
+- A Cloud Dataproc Viewer is limited in its actions based on its role. A viewer can only list clusters, get cluster details, list jobs, get job details, list operations, and get operation details.
+- When using Cloud Dataproc clusters, configure your browser to use the SOCKS proxy. The SOCKS proxy routes data intended for the Cloud Dataproc cluster through an SSH tunnel.
    
 ## Pub/Sub
 You can refer to [this](https://cloud.google.com/pubsub/docs/overview) for docs.
