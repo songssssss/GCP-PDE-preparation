@@ -60,13 +60,10 @@ You can refer to [this](https://cloud.google.com/dataproc/) for docs.
 	 - High Availability (3 master, N workers)
  - After creating a Cloud Dataproc cluster, you can scale the cluster by increasing or decreasing the number of worker nodes in the cluster at any time, even when jobs are running on the cluster. Cloud Dataproc clusters are typically scaled to: 1) increase the number of workers to make a job run faster 2) decrease the number of workers to save money 3) increase the number of nodes to expand available Hadoop Distributed Filesystem (HDFS) storage
  - Worker node can be a regular VM or a Preemptible VM.
- - **Preemptible workers**
- 	- **Preemptible workers** cannot store data.
-  	- A Dataproc cluster cannot have only preemptible workers.
-- The following rules will apply when you use **preemptible workers** with a Cloud Dataproc cluster:
-	- Processing onlySince preemptibles can be reclaimed at any time, preemptible workers do not store data. Preemptibles added to a Cloud Dataproc cluster only function as processing nodes.
- 	- No preemptible-only clustersTo ensure clusters do not lose all workers, Cloud Dataproc cannot create preemptible-only clusters.
-  	- Persistent disk sizeAs a default, all preemptible workers are created with the smaller of 100GB or the primary worker boot disk size. This disk space is used for local caching of data and is not available through HDFS.
+- The following rules will apply when you use *preemptible workers* with a Cloud Dataproc cluster:
+	- Processing only: Since preemptibles can be reclaimed at any time, preemptible workers do not store data. Preemptibles added to a Cloud Dataproc cluster only function as processing nodes.
+ 	- No preemptible-only clusters: To ensure clusters do not lose all workers, Cloud Dataproc cannot create preemptible-only clusters.
+  	- Persistent disk size: As a default, all preemptible workers are created with the smaller of 100GB or the primary worker boot disk size. This disk space is used for local caching of data and is not available through HDFS.
   	- The managed group automatically re-adds workers lost due to reclamation as capacity permits.
 
  - No. of master nodes cannot be changed.
