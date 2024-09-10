@@ -57,6 +57,7 @@ You can refer to [this](https://cloud.google.com/dataproc/) for docs.
 	 - Standard (1 master, N workers)
 	 - Single Node (1 master, 0 workers)
 	 - High Availability (3 master, N workers)
+ - After creating a Cloud Dataproc cluster, you can scale the cluster by increasing or decreasing the number of worker nodes in the cluster at any time, even when jobs are running on the cluster. Cloud Dataproc clusters are typically scaled to: 1) increase the number of workers to make a job run faster 2) decrease the number of workers to save money 3) increase the number of nodes to expand available Hadoop Distributed Filesystem (HDFS) storage
  - Worker node can be a regular VM or a Preemptible VM.
  - No. of master nodes cannot be changed.
  - Job Supported - Hadoop, SparkR, Spark, SparkSQL, Hive, Pig, PySpark
