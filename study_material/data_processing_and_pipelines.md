@@ -20,7 +20,7 @@ You can refer to [this](https://cloud.google.com/dataflow) for docs.
  - Can apply [windowing](https://github.com/singhgautam7/GCP-PDE-preparation---GRS/blob/main/study_material/others/definitions/windowing.md) to streams for rolling average for the window, max in a window etc.
  - You can stop a Dataflow job in the following two ways:
 	- Canceling a job. This method applies to both streaming and batch pipelines. Canceling a job stops the Dataflow service from processing any data, including buffered data
-	- Draining a job. This method applies only to streaming pipelines. Draining a job enables the Dataflow service to finish processing the buffered data while simultaneously ceasing the ingestion of new data.
+	- Draining a job. This method applies only to streaming pipelines. Draining a job enables the Dataflow service to finish processing the buffered data while simultaneously ceasing the ingestion of new data. Using the Drain option to stop your job tells the Dataflow service to finish your job in its current state. Your job will immediately stop ingesting new data from input sources, but the Dataflow service will preserve any existing resources (such as worker instances) to finish processing and writing any buffered data in your pipeline.
  - Updating the pipeline: 
  	- If any major change to windowing transformation (like completely changing window fn from fixed to sliding) in Beam/Dataflow/you want to stop pipeline but want inflight data --> use Drain option.
 	- For all other use cases and Minor changing to windowing fn (like just changing window time of sliding window) --> Use Update with Json mapping.
