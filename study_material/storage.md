@@ -172,6 +172,9 @@ Refer to this [link](https://cloud.google.com/bigtable/docs/overview) for doc.
 	- Read from, but not write to, any table within the project.
 	- Read from and write to any table within the project, but not manage instances.
 	- Read from and write to any table within the project, and manage instances.
+- In a Cloud Bigtable architecture all client requests go through a front-end server before they are sent to a Cloud Bigtable node.
+- The nodes are organized into a Cloud Bigtable cluster, which belongs to a Cloud Bigtable instance, which is a container for the cluster. Each node in the cluster handles a subset of the requests to the cluster.
+When additional nodes are added to a cluster, you can increase the number of simultaneous requests that the cluster can handle, as well as the maximum throughput for the entire cluster.
 
 <details><summary>Row Keys in BigTable</summary>
 <p>
