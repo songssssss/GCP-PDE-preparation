@@ -89,6 +89,7 @@ You can refer to [this](https://cloud.google.com/pubsub/docs/overview) for docs.
 	 - Duplicates can happen when endpoint is not acknowledging messages.
 	 - Maintain a DB to store hash value for each entry.
 	 - Pub/Sub assigns a unique `message_id` to each message which can be used to detect duplicates.
+- Real-time Event Stream: Cloud Pub/Sub is a managed messaging service that can handle real-time event streams efficiently. You can use Pub/Sub to ingest and publish real-time market data to consumers.
 <details><summary>Use Cases of PubSub</summary>
 <p>
 
@@ -101,6 +102,7 @@ You can refer to [this](https://cloud.google.com/pubsub/docs/overview) for docs.
 7. Implementing asynchronous workflows.
 8. Distributing event notifications.
 9. Logging to multiple systems.
+
 
 </p>
 </details>
