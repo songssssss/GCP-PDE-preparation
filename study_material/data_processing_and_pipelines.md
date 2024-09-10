@@ -122,6 +122,7 @@ You can refer to [this](https://cloud.google.com/dataprep/docs/how-to) for docs.
  - No infrastructure to deploy or manage
  - Automatically detect schema, anomalies
  - Dataprep can be run on Dataflow using template and cloud composer
+ - Dataprep is used by non developers
 
 ## Cloud Composer
 You can refer to [this](https://cloud.google.com/composer/docs) for docs.
