@@ -26,6 +26,63 @@ Manipulation of features to improve the quality and predictive capabilities of m
 - Decompose values to parts
 	- Ex: From date extract year, month and day
 
+Certainly! Let's delve into the concepts of **crossed feature columns** and **bucketization of a continuous feature**. Both are techniques used in feature engineering to improve the performance of machine learning models.
+
+### C. Crossed Feature Columns
+
+**Crossed feature columns** involve creating new features by combining two or more existing features. This technique is particularly useful for capturing interactions between features that might be important for predicting the target variable.
+
+#### Explanation:
+
+1. **Concept**:
+   - Crossing features means creating a new feature that represents the interaction between two or more features. For example, if you have features `A` (e.g., age) and `B` (e.g., gender), crossing these features could create a new feature like `A_B`, which combines `age` and `gender` into a single feature representing different age-gender combinations.
+
+2. **Why Use Crossed Features?**:
+   - **Interaction Effects**: Sometimes, the relationship between features can provide valuable information that individual features alone cannot. For instance, the effect of age on purchasing behavior might differ between genders.
+   - **Non-linearity**: Crossed features help capture non-linear relationships between features that a simple linear model might miss.
+
+3. **Implementation**:
+   - **One-Hot Encoding**: In many implementations, crossed features are one-hot encoded, turning each unique combination of feature values into a binary column.
+   - **Embedding**: In some models, especially neural networks, crossed features might be represented as embeddings to reduce dimensionality and capture interactions in a more compact form.
+
+4. **Example**:
+   - If you have two categorical features, `Country` (with values like 'USA', 'Canada') and `Product` (with values like 'Electronics', 'Clothing'), crossing these features would create new feature combinations like `Country_USA_Product_Electronics` and `Country_Canada_Product_Clothing`.
+
+5. **Use Cases**:
+   - Crossed features are used in various contexts, including recommendation systems, advertising, and other domains where feature interactions are crucial for accurate predictions.
+
+### D. Bucketization of a Continuous Feature
+
+**Bucketization** (or discretization) involves transforming a continuous feature into categorical bins or buckets. This technique is used to convert continuous variables into discrete categories to simplify the model or handle non-linear relationships.
+
+#### Explanation:
+
+1. **Concept**:
+   - Bucketization divides the range of a continuous feature into discrete intervals or buckets. For example, if you have a continuous feature like `income`, you might bucketize it into ranges like `$0-$20k`, `$20k-$40k`, `$40k-$60k`, and so on.
+
+2. **Why Use Bucketization?**:
+   - **Handling Non-Linearity**: Bucketizing can help the model handle non-linear relationships between the continuous feature and the target variable.
+   - **Simplifying Models**: Reducing a continuous feature to a limited number of categories can simplify the model and make it easier to interpret.
+   - **Handling Outliers**: Bucketization can mitigate the impact of outliers by grouping extreme values into a single bucket.
+
+3. **Implementation**:
+   - **Equal-width Buckets**: Divide the range of the feature into intervals of equal width.
+   - **Equal-frequency Buckets**: Divide the feature so that each bucket contains approximately the same number of data points.
+   - **Custom Buckets**: Define buckets based on domain knowledge or specific criteria.
+
+4. **Example**:
+   - Suppose you have a continuous feature `age`. You might bucketize it into age groups: 0-18, 19-35, 36-50, 51-65, and 66+. Each age group is treated as a separate categorical feature.
+
+5. **Use Cases**:
+   - Bucketization is commonly used in decision trees and other models where handling continuous variables directly can be complex. It is also used in cases where certain thresholds or ranges have specific implications for the target variable.
+
+### Summary
+
+- **Crossed Feature Columns**: Create new features by combining two or more existing features to capture interactions and non-linear relationships. Useful for models that benefit from feature interactions.
+- **Bucketization of a Continuous Feature**: Transform continuous features into categorical buckets to simplify modeling and handle non-linear relationships. Useful for making continuous variables more manageable and interpretable.
+
+Both techniques are valuable tools in feature engineering that can help improve model performance by addressing specific characteristics of the data and relationships between features.
+
 ## One-Hot Encoding
 - Map from an attribute value to a single bit in a binary array
 - Each postion in array represent a possible value
