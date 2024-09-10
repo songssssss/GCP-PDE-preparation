@@ -90,6 +90,8 @@ You can refer to [this](https://cloud.google.com/pubsub/docs/overview) for docs.
 	 - Maintain a DB to store hash value for each entry.
 	 - Pub/Sub assigns a unique `message_id` to each message which can be used to detect duplicates.
 - Real-time Event Stream: Cloud Pub/Sub is a managed messaging service that can handle real-time event streams efficiently. You can use Pub/Sub to ingest and publish real-time market data to consumers.
+- Pub/sub will be used to streaming data between application
+  
 <details><summary>Use Cases of PubSub</summary>
 <p>
 
