@@ -31,6 +31,8 @@
 	 - Max limit = 10 days
 	 - Access can be given **for objects** using signed url.
 - Cloud Storage can be used for batch historical exports. You can export data from BigQuery to Cloud Storage in batch, making it available for consumers to download.
+- Huge amount of data with log network bandwidth, Transfer applicate is best for moving data over 100TB
+
 
 ## DataStore
  - NoSQL DB, serverless, highly scalable
