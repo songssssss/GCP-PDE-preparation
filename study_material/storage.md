@@ -112,7 +112,8 @@
 	- Secondary indexes are explicitly created using  the `CREATE INDEX` command
 	- Secondary indexes are useful when filtering in a query using a `WHERE` clause. If the column referenced in the WHERE clause is indexed, the index can be used for filtering rather than scanning the full table and then filtering
 - Use interleaved tables with a parent-child relationship in which parent data is stored with child data. This makes retrieving data from both tables simultaneously more efficient than if the data were stored separately and is especially helpful when performing joins. Since the data from both tables is co-located, the database has to perform fewer seeks to get all the needed data
-
+- Three types of replicas: read-write replicas, read-only replicas, and witness replicas.
+  
 <details><summary>Cloud SQL vs Cloud Spanner</summary>
 <p>
 
