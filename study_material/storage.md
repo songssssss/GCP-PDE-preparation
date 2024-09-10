@@ -96,7 +96,8 @@
 - To shift some workloads, `read replicas` can be made.
 - Cloud SQL supports transactions as well as **analysis through a _BI tool_**.
 - Cloud SQL supports MySQL 5.6 or 5.7, and provides up to 624 GB of RAM and 30 TB of data storage, with the option to automatically increase the storage size as needed.
-
+- It asks for scaling up which can be done in cloud sql, horizontal scaling is not possible in cloud sql
+- Automatic storage increase: If you enable this setting, Cloud SQL checks your available storage every 30 seconds. If the available storage falls below a threshold size, Cloud SQL automatically adds additional storage capacity. If the available storage repeatedly falls below the threshold size, Cloud SQL continues to add storage until it reaches the maximum of 30 TB.
 
 ## Cloud Spanner
 - Can be scaled globally.
