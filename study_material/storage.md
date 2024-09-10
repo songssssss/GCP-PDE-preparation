@@ -30,6 +30,7 @@
 	 - Temporary access for a person with or without google account.
 	 - Max limit = 10 days
 	 - Access can be given **for objects** using signed url.
+- Cloud Storage can be used for batch historical exports. You can export data from BigQuery to Cloud Storage in batch, making it available for consumers to download.
 
 ## DataStore
  - NoSQL DB, serverless, highly scalable
@@ -226,7 +227,7 @@ Refer to this [link](https://cloud.google.com/bigquery/docs/introduction) for do
 	- Batch: Batches of queries are queued and the query starts when idle resources are available
 - [Link](https://cloud.google.com/architecture/dw2bq/dw-bq-migration-overview) for Migrating data warehouses to BigQuery
 - [Link](https://cloud.google.com/bigquery/docs/best-practices-performance-patterns) for Best practices for performance
-
+- BigQuery supports ANSI SQL queries, making it suitable for both real-time and historical data analysis. You can stream data into BigQuery tables from Pub/Sub and provide ANSI SQL access to consumers.
 
 <details><summary>Partitioning in BQ</summary>
 <p>
