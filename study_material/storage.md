@@ -169,9 +169,9 @@ Refer to this [link](https://cloud.google.com/bigtable/docs/overview) for doc.
 - The only way to achieve strong consistency in Cloud Bigtable is by having all reads routed from a single cluster and using the other replicas only for failover
 - Security : Can manage security at project, instance and table levels and it can be managed via IAM. For example, you can grant the ability to: Read from, but not write to, **any table** within the project. Read from and write to **any table** within the project, but not manage instances. Read from and write to **any table** within the project, and manage instances
 - For Cloud Bigtable, you can configure access control at the project level. For example, you can grant the ability to:
-- 	Read from, but not write to, any table within the project.
-- 	Read from and write to any table within the project, but not manage instances.
-- 	Read from and write to any table within the project, and manage instances.
+	- Read from, but not write to, any table within the project.
+	- Read from and write to any table within the project, but not manage instances.
+	- Read from and write to any table within the project, and manage instances.
 
 <details><summary>Row Keys in BigTable</summary>
 <p>
