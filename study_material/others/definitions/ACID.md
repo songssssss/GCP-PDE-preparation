@@ -25,4 +25,5 @@ In Google Cloud Platform (GCP), several products and services are designed to en
 
 5. **Datastore**: Cloud Datastore, which is now part of Firestore in Datastore mode, offers ACID transactions for operations within a single entity group. It is designed for applications needing strong consistency and transactional support in a scalable, NoSQL database.
 
+6. **BigQuery**: a fully-managed data warehouse, does not fully adhere to traditional ACID properties in the same way relational databases do. 
 Each of these products ensures ACID compliance to varying degrees and in different contexts, depending on the specific needs of the application and the type of database system used.
