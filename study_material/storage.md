@@ -32,7 +32,7 @@
 	 - Access can be given **for objects** using signed url.
 - Cloud Storage can be used for batch historical exports. You can export data from BigQuery to Cloud Storage in batch, making it available for consumers to download.
 - Huge amount of data with log network bandwidth, Transfer applicate is best for moving data over 100TB
-
+- Like gsutil, Storage Transfer Service for on-premises data enables transfers from network file system (NFS) storage to Cloud Storage. Although gsutil can support small transfer sizes (up to 1 TB), Storage Transfer Service for on-premises data is designed for large-scale transfers (up to petabytes of data, billions of files).
 
 ## DataStore
  - NoSQL DB, serverless, highly scalable
