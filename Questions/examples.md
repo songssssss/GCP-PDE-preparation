@@ -213,3 +213,115 @@ Execute gsutil rsync from the on-premises servers.
 Use Cloud Dataflow and write the data to Cloud Storage.
 Write a job template in Cloud Dataproc to perform the data transfer.
 Install an FTP server on a Compute Engine VM to receive the files and move them to Cloud Storage.
+
+---
+Question 108
+
+You're using Bigtable for a real-time application, and you have a heavy load that is a mix of read and writes. You've recently identified an additional use case and need to perform hourly an analytical job to calculate certain statistics across the whole database. You need to ensure both the reliability of your production application as well as the analytical workload.
+
+What should you do?
+Export Bigtable dump to GCS and run your analytical job on top of the exported files.
+Add a second cluster to an existing instance with a multi-cluster routing, use live-traffic app profile for your regular workload and batch-analytics profile for the analytics workload.
+Add a second cluster to an existing instance with a single-cluster routing, use live-traffic app profile for your regular workload and batch-analytics profile for the analytics workload.
+Increase the size of your existing cluster twice and execute your analytics workload on your new resized cluster.
+
+Answer is Add a second cluster to an existing instance with a single-cluster routing, use live-traffic app profile for your regular workload and batch-analytics profile for the analytics workload.
+
+You need to perform an hourly batch job on the cluster that already has high workload. in such cases, the best option is to replicate the cluster with single cluster routing. The original cluster can continue its read and writes. the replicated cluster can be used for analytical workload without impacting original cluster. Multi cluster routing is beneficial in cases where high availability is needed but requirement is only to isolate analytical workload from existing cluster.
+
+---
+Question 107
+
+Your team is responsible for developing and maintaining ETLs in your company. One of your Dataflow jobs is failing because of some errors in the input data, and you need to improve reliability of the pipeline (incl. being able to reprocess all failing data).
+
+What should you do?
+Add a filtering step to skip these types of errors in the future, extract erroneous rows from logs.
+Add a try... catch block to your DoFn that transforms the data, extract erroneous rows from logs.
+Add a try... catch block to your DoFn that transforms the data, write erroneous rows to PubSub directly from the DoFn.
+Add a try... catch block to your DoFn that transforms the data, use a sideOutput to create a PCollection that can be stored to PubSub later.
+
+
+When dealing with data pipeline failures in Google Cloud Dataflow due to errors in input data, it’s important to ensure that your pipeline is resilient and can handle and reprocess errors effectively. Here's a breakdown of the options:
+
+### 1. **Add a Filtering Step to Skip These Types of Errors in the Future, Extract Erroneous Rows from Logs**
+
+**Description:**
+- This approach involves modifying the pipeline to filter out problematic records that cause errors, and then extracting these errors from logs for further analysis.
+
+**Advantages:**
+- **Prevention**: Prevents the pipeline from failing on future errors of the same type.
+
+**Disadvantages:**
+- **Limited Reprocessing**: This does not directly address reprocessing or managing the erroneous data. It focuses on preventing failures but does not handle the errors that have already occurred.
+
+### 2. **Add a Try... Catch Block to Your `DoFn` That Transforms the Data, Extract Erroneous Rows from Logs**
+
+**Description:**
+- This involves adding error handling within your `DoFn` to catch exceptions and then extract erroneous rows from logs.
+
+**Advantages:**
+- **Error Handling**: Catches and logs errors within the `DoFn`.
+
+**Disadvantages:**
+- **Reactive Approach**: This approach focuses on extracting errors after the fact, and it does not provide a mechanism for reprocessing or handling erroneous rows dynamically.
+
+### 3. **Add a Try... Catch Block to Your `DoFn` That Transforms the Data, Write Erroneous Rows to Pub/Sub Directly from the `DoFn`**
+
+**Description:**
+- This approach involves handling errors in your `DoFn` and sending erroneous rows to Pub/Sub for further analysis or reprocessing.
+
+**Advantages:**
+- **Immediate Action**: Allows you to handle errors in real-time and forward erroneous rows for further processing or monitoring.
+
+**Disadvantages:**
+- **Potential Overhead**: Directly writing to Pub/Sub from `DoFn` can introduce overhead and complexity. The handling of erroneous rows needs to be carefully managed.
+
+### 4. **Add a Try... Catch Block to Your `DoFn` That Transforms the Data, Use a SideOutput to Create a PCollection That Can Be Stored to Pub/Sub Later**
+
+**Description:**
+- This involves adding error handling within the `DoFn` and using a `SideOutput` to capture erroneous rows into a separate `PCollection`, which can then be written to Pub/Sub or another sink for later processing.
+
+**Advantages:**
+- **Structured Error Handling**: This method allows you to separately handle and reprocess erroneous data without affecting the main pipeline. 
+- **Flexibility**: Enables reprocessing of erroneous data later, and keeps the main pipeline clean and focused on processing valid data.
+
+**Disadvantages:**
+- **Complexity**: Introduces additional steps and complexity in managing side outputs and ensuring that the erroneous data is properly handled and reprocessed.
+
+### **Recommendation**
+
+**Add a Try... Catch Block to Your `DoFn` That Transforms the Data, Use a SideOutput to Create a PCollection That Can Be Stored to Pub/Sub Later**
+
+**Rationale:**
+- This approach provides a robust way to handle errors and ensures that erroneous data can be captured, stored, and reprocessed separately from the main data pipeline. Using `SideOutput` allows for a clean separation of error handling and main data processing, which improves reliability and maintainability.
+
+**Implementation Steps:**
+1. **Add Error Handling**: Implement a `try... catch` block within your `DoFn` to handle and catch exceptions that occur during data transformation.
+   
+2. **Use SideOutput**: Create a `PCollection` for erroneous rows using `SideOutput`.
+
+   ```python
+   class MyDoFn(DoFn):
+       def process(self, element, context):
+           try:
+               # Transformation logic
+               yield transformed_element
+           except Exception as e:
+               # Capture erroneous rows in a side output
+               context.side_output(erroneous_rows, element)
+   
+   p = Pipeline()
+   main_data = p | 'Read' >> ReadFromSource()
+   erroneous_data = main_data | 'Transform' >> ParDo(MyDoFn()).with_outputs('erroneous_rows', main='main_data')
+   erroneous_data.erroneous_rows | 'WriteErrorsToPubSub' >> WriteToPubSub(...)
+   main_data.main | 'WriteToBigQuery' >> WriteToBigQuery(...)
+   ```
+
+3. **Process SideOutput Data**: Set up a separate process or pipeline to handle and reprocess the erroneous data stored in Pub/Sub or another sink.
+
+This approach ensures that your pipeline remains reliable and that errors are effectively managed and reprocessed, enhancing the overall robustness of your data processing workflows.
+
+
+
+
+
