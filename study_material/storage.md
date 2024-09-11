@@ -147,6 +147,7 @@ Refer to this [link](https://cloud.google.com/bigtable/docs/overview) for doc.
 - No downtime for cluster resize.
 - While instance creation, clusters can be configured on number of nodes, SSD or HDD, Regional or Zone etc.
 - Scales linearly. Increasing no. of nodes increases performance.
+- Bigtable is a NoSQL database for massive writes, and to scale (storage and CPU) you must add nodes
 - Mutations or Deletions takes extra storage as mutations are stored sequentially.
 - Deletions are just specialized mutations.
 - Automatic read-write operations to reorganize the data or to remove deleted items.
