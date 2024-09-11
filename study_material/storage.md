@@ -243,7 +243,11 @@ Refer to this [link](https://cloud.google.com/bigquery/docs/introduction) for do
 - [Link](https://cloud.google.com/architecture/dw2bq/dw-bq-migration-overview) for Migrating data warehouses to BigQuery
 - [Link](https://cloud.google.com/bigquery/docs/best-practices-performance-patterns) for Best practices for performance
 - BigQuery supports ANSI SQL queries, making it suitable for both real-time and historical data analysis. You can stream data into BigQuery tables from Pub/Sub and provide ANSI SQL access to consumers.
-
+- Before loading the data into BigQuery, use Cloud Data Loss Prevention (DLP) to replace input values with a cryptographic format-preserving encryption token.
+	The key reasons are:
+	- DLP allows redacting sensitive PII like SSNs before loading into BigQuery. This provides security by default for the raw SSN values.
+	- Using format-preserving encryption keeps the column format intact while still encrypting, allowing business logic relying on SSN format to continue functioning.
+	- The encrypted tokens can be reversed to view original SSNs when required, meeting the access requirement for customer service reps.
 <details><summary>Partitioning in BQ</summary>
 <p>
 
