@@ -106,6 +106,7 @@
 - Use when data is > 2TB
 - Lift and Shift not recommended for this.
 - Spanner = SQL + Horizontal Scalability
+- Enabling stale reads in Spanner would reduce data consistency and reduce latency.
 - High replication possible
 - We do not have to mention storage. So we do not change number of nodes for increasing or decreasing storage
 - Each node can store upto 2TB
