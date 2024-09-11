@@ -217,6 +217,7 @@ Refer to this [link](https://cloud.google.com/bigquery/docs/introduction) for do
 - Not for transactional purposes
 - Can also query from external data sources like SQL, Bigtable
 - Supports CSV, JSON, Avro, SQL, Parquet
+	- Avro format has schema evolution capabilities and efficient serialization for flight telemetry data
 - Querying is very expensive here
 - Command line tool = `bq`
 - Tables here have schema
