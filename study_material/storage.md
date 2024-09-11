@@ -249,6 +249,7 @@ Refer to this [link](https://cloud.google.com/bigquery/docs/introduction) for do
 	- DLP allows redacting sensitive PII like SSNs before loading into BigQuery. This provides security by default for the raw SSN values.
 	- Using format-preserving encryption keeps the column format intact while still encrypting, allowing business logic relying on SSN format to continue functioning.
 	- The encrypted tokens can be reversed to view original SSNs when required, meeting the access requirement for customer service reps.
+ - **TABLE_DATE_RANGE**: Legacy sql uses table date range whereas standard sql uses table_sufix for wildcard
 <details><summary>Partitioning in BQ</summary>
 <p>
 
