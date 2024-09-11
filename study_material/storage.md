@@ -39,7 +39,7 @@
  - AutoScale supported.
  - High availability of reads and writes.
  - Fully managed with no planned downtime
- - It is a fully managed and serverless solution that allows for transactions and will autoscale (storage and compute) without the need to manage any infrastructure
+ - **It is a fully managed and serverless solution that allows for transactions and will autoscale (storage and compute) without the need to manage any infrastructure**
  - Each transaction is guaranteed to be **atomic**, meaning that transactions are never partially applied. Either all of the operations in the transaction are applied, or none of them are applied.
  - Document kind storage
  - Tightly coupled with app engine, so one project can have just one firestore/datastore
@@ -87,6 +87,7 @@
 ## Cloud SQL
 - Fully managed
 - Cannot be scaled globally
+- Cloud SQL is fully a managed transactional DB, but only the storage grows automatically. As your user base increases, you will need to increase the CPU/memory of the instance, and to do that you must edit the instance manually (and the questions specifically says "you do not want to manage infrastructure scaling")
 - Can connect to App engine, Google Kubernetes Engine or Compute Engine
 - Can Store 30 TB of data
 - Backups - 
