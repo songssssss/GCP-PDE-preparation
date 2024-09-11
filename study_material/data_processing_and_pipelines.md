@@ -121,7 +121,8 @@ You can refer to [this](https://cloud.google.com/pubsub/docs/overview) for docs.
 	 - Pub/Sub assigns a unique `message_id` to each message which can be used to detect duplicates.
 - Real-time Event Stream: Cloud Pub/Sub is a managed messaging service that can handle real-time event streams efficiently. You can use Pub/Sub to ingest and publish real-time market data to consumers.
 - Pub/sub will be used to streaming data between application
-  
+- Use Google Stackdriver Monitoring on Cloud Pub/Sub: Check monitoring and logs to determine if there are any issues with message delivery or processing in Cloud Pub/Sub. This step can help identify problems with message consumption or delivery.
+
 <details><summary>Use Cases of PubSub</summary>
 <p>
 
