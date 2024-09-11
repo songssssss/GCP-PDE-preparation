@@ -204,4 +204,12 @@ To address the issue of exceeding the limit of 1,000 tables due to your current 
 
 **Converting the sharded tables into a single partitioned table** is the best solution because it efficiently manages large datasets, avoids the 1,000-table limit, and improves query performance. It provides a scalable and manageable way to handle historical and ongoing data without running into limitations imposed by the sharded table approach.
 
+Question 110
 
+Your company needs to upload their historic data to Cloud Storage. The security rules don't allow access from external IPs to their on-premises resources. After an initial upload, they will add new data from existing on-premises applications every day.
+
+What should they do?
+Execute gsutil rsync from the on-premises servers.
+Use Cloud Dataflow and write the data to Cloud Storage.
+Write a job template in Cloud Dataproc to perform the data transfer.
+Install an FTP server on a Compute Engine VM to receive the files and move them to Cloud Storage.
