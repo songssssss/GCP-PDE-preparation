@@ -129,3 +129,79 @@ Given these considerations, option D (Batch the job into ten-second increments) 
 
 Additionally, it's important to consider other strategies in conjunction with batching, such as implementing efficient error handling, load balancing, and potentially using asynchronous I/O for external HTTP calls to further optimize performance and minimize backpressure.
 
+---
+Question 100
+
+You launched a new gaming app almost three years ago. You have been uploading log files from the previous day to a separate Google BigQuery table with the table name format LOGS_yyyymmdd. You have been using table wildcard functions to generate daily and monthly reports for all time ranges. Recently, you discovered that some queries that cover long date ranges are exceeding the limit of 1,000 tables and failing.
+
+How can you resolve this issue?
+Convert all daily log tables into date-partitioned tables
+Convert the sharded tables into a single partitioned table
+Enable query caching so you can cache data from previous months
+Create separate views to cover each month, and query from these views
+
+
+Google says that when you have multiple wildcard tables, best option is to shard it into single partitioned table. Time and cost efficient
+To address the issue of exceeding the limit of 1,000 tables due to your current sharded table structure in Google BigQuery, the most effective solution is to **convert the sharded tables into a single partitioned table**. Here’s why this approach works best and how it compares to the other options:
+
+### 1. **Convert the Sharded Tables into a Single Partitioned Table**
+
+**Description:**
+- **Partitioned Tables**: In BigQuery, partitioned tables allow you to store large amounts of data in a single table while still being able to query efficiently across specific date ranges. You can partition tables by date, which will let you query data efficiently without hitting the 1,000-table limit.
+
+**Advantages:**
+- **Efficiency**: Queries on a partitioned table are often more efficient than those using table wildcards, especially for large date ranges.
+- **Cost-Effective**: Reduces the need to scan multiple tables and simplifies the query logic, potentially lowering costs.
+- **Scalability**: Avoids the issue of hitting table limits and scales better with large datasets over time.
+
+**Implementation Steps:**
+1. **Create a Partitioned Table**:
+   ```sql
+   CREATE TABLE `your_project.your_dataset.logs_partitioned` (
+     log_date DATE,
+     -- other columns
+   )
+   PARTITION BY log_date;
+   ```
+
+2. **Migrate Data**:
+   - Load your existing sharded data into this new partitioned table. You can use a Data Transfer Service or write a script to handle the migration.
+
+3. **Update Queries**:
+   - Modify your queries to work with the new partitioned table. You can use date filters to specify the desired range.
+
+   ```sql
+   SELECT *
+   FROM `your_project.your_dataset.logs_partitioned`
+   WHERE log_date BETWEEN '2023-01-01' AND '2023-01-31';
+   ```
+
+### 2. **Convert All Daily Log Tables into Date-Partitioned Tables**
+
+**Description:**
+- This would involve creating multiple partitioned tables, each corresponding to a specific date range or period.
+
+**Disadvantages:**
+- **Over-Complexity**: Managing multiple partitioned tables can become cumbersome and does not solve the fundamental issue of exceeding the table limit.
+
+### 3. **Enable Query Caching**
+
+**Description:**
+- Query caching in BigQuery is used to speed up query execution by reusing the results of previously run queries.
+
+**Disadvantages:**
+- **Not a Solution for Table Limits**: Caching helps with performance but does not address the issue of exceeding the table limit or manage large datasets effectively.
+
+### 4. **Create Separate Views for Each Month**
+
+**Description:**
+- This involves creating views that aggregate data by month from the existing sharded tables.
+
+**Disadvantages:**
+- **Still Exceeds Table Limits**: Although views can simplify querying, you are still dealing with the original sharded tables and will eventually hit the 1,000-table limit.
+
+### **Summary**
+
+**Converting the sharded tables into a single partitioned table** is the best solution because it efficiently manages large datasets, avoids the 1,000-table limit, and improves query performance. It provides a scalable and manageable way to handle historical and ongoing data without running into limitations imposed by the sharded table approach.
+
+
