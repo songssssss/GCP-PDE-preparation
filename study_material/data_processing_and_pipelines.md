@@ -3,9 +3,9 @@
 
 ## Dataflow
 You can refer to [this](https://cloud.google.com/dataflow) for docs.
- - Cloud version for *Apache Beam*.
+ - Cloud version for *Apache Beam*. Apache Beam connectors avoid having to write much code to integrate proprietary data sources
  - Preferred for new Hadoop or Spark infrastructure development
- - Process batch or stream data.
+ - Process batch or stream data. Dataflow provides managed resource scaling for efficient stream processing
  - Serverless, fast, scalable, fault-tolerant.
  - Multi-Step processing data. Eg: Wordcount.
  - Cloud dataflow executed as jobs where one or more worker carry out specific tasks
