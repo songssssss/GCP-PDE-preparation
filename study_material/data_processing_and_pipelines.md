@@ -12,6 +12,7 @@ You can refer to [this](https://cloud.google.com/dataflow) for docs.
  - Supports SQL, Java, Python
  - When you run a job on Cloud Dataflow, it spins up a cluster of virtual machines, distributes the tasks in your job to the VMs, and dynamically scales the cluster based on how the job is performing.
  - Stackdriver integration for logging and monitoring
+ - Dataflow provides a cost-effective solution to perform transformations on the streaming data, with autoscaling provides scaling without any intervention. System lag with Stackdriver provides monitoring for the streaming data. With autoscaling enabled, the Cloud Dataflow service automatically chooses the appropriate number of worker instances required to run your job.
  - Used for data processing, ELT(Extract Transform Load), filter, group for data sets.
  - Can read data from multiple sources, can kick off multiple cloud functions in parallel and can also writer to multiple sinks (like BigQuery, BigTable etc.)
  - When you update a job on the Dataflow service, you replace the existing job with a new job that runs your updated pipeline code
