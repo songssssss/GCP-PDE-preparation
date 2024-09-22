@@ -14,16 +14,16 @@ All the sub-headings here represents approaches to data transfer.
 **The Google Cloud CLI (Command-Line Interface)** is a powerful tool provided by Google that allows users to interact with various Google Cloud services from the command line. Here are some key differences between using the Google CLI and not using it:
 
 - Using Google CLI:
-* Efficiency: The CLI provides a streamlined way to interact with Google Cloud services without the need to navigate through the web console. This can save time and make tasks more efficient.
-Automation: With the CLI, you can automate tasks using scripts or batch commands, which can be especially useful for repetitive tasks or complex operations.
-* Flexibility: The CLI offers a wide range of commands and options for managing Google Cloud resources, giving users more flexibility and control over their cloud environment.
-* Integration: It can be easily integrated into CI/CD pipelines, allowing for seamless automation and deployment processes.
-* Portability: The CLI can be used across different operating systems, providing a consistent interface regardless of the platform.
+	* Efficiency: The CLI provides a streamlined way to interact with Google Cloud services without the need to navigate through the web console. This can save time and make tasks more efficient.
+	Automation: With the CLI, you can automate tasks using scripts or batch commands, which can be especially useful for repetitive tasks or complex operations.
+	* Flexibility: The CLI offers a wide range of commands and options for managing Google Cloud resources, giving users more flexibility and control over their cloud environment.
+	* Integration: It can be easily integrated into CI/CD pipelines, allowing for seamless automation and deployment processes.
+	* Portability: The CLI can be used across different operating systems, providing a consistent interface regardless of the platform.
 - Not Using Google CLI:
-* Manual Operations: Without the CLI, users may need to rely on the Google Cloud Console web interface for managing resources, which can be more time-consuming, especially for repetitive tasks.
-* Limited Automation: Without the CLI, automating tasks may require more manual effort or the use of other tools, which may not be as efficient as using a dedicated command-line tool.
-* Learning Curve: Using the web console may have a steeper learning curve for users who are more comfortable with command-line interfaces.
-* Dependency on GUI: Without the CLI, users are dependent on the graphical user interface (GUI) provided by Google Cloud, which may not be as suitable for certain use cases or workflows.
+	* Manual Operations: Without the CLI, users may need to rely on the Google Cloud Console web interface for managing resources, which can be more time-consuming, especially for repetitive tasks.
+	* Limited Automation: Without the CLI, automating tasks may require more manual effort or the use of other tools, which may not be as efficient as using a dedicated command-line tool.
+	* Learning Curve: Using the web console may have a steeper learning curve for users who are more comfortable with command-line interfaces.
+	* Dependency on GUI: Without the CLI, users are dependent on the graphical user interface (GUI) provided by Google Cloud, which may not be as suitable for certain use cases or workflows.
 In summary, using the Google CLI provides a more efficient, flexible, and automated way to interact with Google Cloud services compared to not using it, especially for users who prefer command-line interfaces or need to automate tasks in their cloud operations.
 
 
