@@ -349,6 +349,35 @@ Add a try... catch block to your DoFn that transforms the data, use a sideOutput
 
 
 
+---
+Question 107
+
+You're using Bigtable for a real-time application, and you have a heavy load that is a mix of read and writes. You've recently identified an additional use case and need to perform hourly an analytical job to calculate certain statistics across the whole database. You need to ensure both the reliability of your production application as well as the analytical workload.
+
+What should you do?
+Export Bigtable dump to GCS and run your analytical job on top of the exported files.
+Add a second cluster to an existing instance with a multi-cluster routing, use live-traffic app profile for your regular workload and batch-analytics profile for the analytics workload.
+Add a second cluster to an existing instance with a single-cluster routing, use live-traffic app profile for your regular workload and batch-analytics profile for the analytics workload.
+Increase the size of your existing cluster twice and execute your analytics workload on your new resized cluster.
+
+Answer is Add a second cluster to an existing instance with a single-cluster routing, use live-traffic app profile for your regular workload and batch-analytics profile for the analytics workload.
+
+You need to perform an hourly batch job on the cluster that already has high workload. in such cases, the best option is to replicate the cluster with single cluster routing. The original cluster can continue its read and writes. the replicated cluster can be used for analytical workload without impacting original cluster. Multi cluster routing is beneficial in cases where high availability is needed but requirement is only to isolate analytical workload from existing cluster.
+
+---
+Question 109
+
+Your company needs to upload their historic data to Cloud Storage. The security rules don't allow access from external IPs to their on-premises resources. After an initial upload, they will add new data from existing on-premises applications every day.
+
+What should they do?
+Execute gsutil rsync from the on-premises servers.
+Use Cloud Dataflow and write the data to Cloud Storage.
+Write a job template in Cloud Dataproc to perform the data transfer.
+Install an FTP server on a Compute Engine VM to receive the files and move them to Cloud Storage.
+
+
+
+
 
 
 
