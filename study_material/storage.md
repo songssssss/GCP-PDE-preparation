@@ -378,6 +378,11 @@ BigQuery offers a choice of two pricing models for running queries -
 	
 </p>
 </details>
+**Clustering**
+In general, there are two typical usage patterns for clustering within a data warehouse:
+- Clustering on columns that have a very high number of distinct values, like userId or transactionId.
+
+- Clustering on multiple columns that are frequently used together. When clustering by multiple columns, the order of columns you specify is important. The order of the specified columns determines the sort order of the data. You can filter by any prefix of the clustering columns and get the benefits of clustering, like regionId, shopId and productId together; or regionId and shopId; or just regionId.
 
 ## Choosing a Database
 - If there is a requirement to search terabytes or petabytes of data relatively quickly it will make more sense to simply store in BigQuery.
