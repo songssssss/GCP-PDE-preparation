@@ -430,12 +430,100 @@ BigQuery: Ideal for data warehouse-style analytics due to its scalability, ease 
 Cloud Storage: Provides a way to store a compressed copy of the data, making it accessible for batch processing tools on other cloud providers.
 
 BigQuery can read compressed files directly if they are in supported formats like GZIP for CSV and JSON files. However, it cannot query directly from compressed files in Cloud Storage. You would need to load or query the data into BigQuery, where it can handle compressed input during loading
+---
+
+Question 121
+
+You are building a new application that you need to collect data from in a scalable way. Data arrives continuously from the application throughout the day, and you expect to generate approximately 150 GB of JSON data per day by the end of the year. Your requirements are:
+- Decoupling producer from consumer
+- Space and cost-efficient storage of the raw ingested data, which is to be stored indefinitely
+- Near real-time SQL query
+- Maintain at least 2 years of historical data, which will be queried with SQL
+
+Which pipeline should you use to meet these requirements?
+Create an application that provides an API. Write a tool to poll the API and write data to Cloud Storage as gzipped JSON files.
+Create an application that writes to a Cloud SQL database to store the data. Set up periodic exports of the database to write to Cloud Storage and load into BigQuery.
+Create an application that publishes events to Cloud Pub/Sub, and create Spark jobs on Cloud Dataproc to convert the JSON data to Avro format, stored on HDFS on Persistent Disk.
+Create an application that publishes events to Cloud Pub/Sub, and create a Cloud Dataflow pipeline that transforms the JSON event payloads to Avro, writing the data to Cloud Storage and BigQuery.
+
+D
+Because we have to be able to query over historical 2 years data only BigQuery address this issue and because we have lots of input data we have to use Dataflow for processing.
+
+Explanation:
+- Decoupling Producer from Consumer: Cloud Pub/Sub acts as a messaging service, allowing you to decouple the application (producer) from the processing pipeline (consumer).
+- Space and Cost-Efficient Storage: Transforming JSON to Avro reduces storage costs due to Avro's efficient binary format. Storing data in Cloud Storage is cost-effective.
+- Near Real-Time SQL Query: Dataflow can write directly to BigQuery, enabling near real-time SQL querying capabilities.
+Historical Data Storage: Cloud Storage can retain Avro files indefinitely, and BigQuery can maintain at least 2 years of historical data for querying.
+
+This setup efficiently handles ingestion, transformation, and storage while meeting all specified requirements.
+
+---
+Question 127
+
+You need to deploy additional dependencies to all of a Cloud Dataproc cluster at startup using an existing initialization action. Company security policies require that Cloud Dataproc nodes do not have access to the Internet so public initialization actions cannot fetch resources.
+
+What should you do?
+Deploy the Cloud SQL Proxy on the Cloud Dataproc master
+Use an SSH tunnel to give the Cloud Dataproc cluster access to the Internet
+Copy all dependencies to a Cloud Storage bucket within your VPC security perimeter
+Use Resource Manager to add the service account used by the Cloud Dataproc cluster to the Network User role
+
+Answer is Copy all dependencies to a Cloud Storage bucket within your VPC security perimeter
+
+If you create a Dataproc cluster with internal IP addresses only, attempts to access the Internet in an initialization action will fail unless you have configured routes to direct the traffic through a NAT or a VPN gateway. Without access to the Internet, you can enable Private Google Access, and place job dependencies in Cloud Storage; cluster nodes can download the dependencies from Cloud Storage from internal IPs.
+
+Reference:
+https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/init-actions
+
+---
+Question 128
+
+You work for a mid-sized enterprise that needs to move its operational system transaction data from an on-premises database to GCP. The database is about 20 TB in size.
+
+Which database should you choose?
+Cloud SQL
+Cloud Bigtable
+Cloud Spanner
+Cloud Datastore
+
+Answer is Cloud SQL
+
+Cloud SQL can store upto 30 TB.
+
+---
+Question 129
+
+You have data pipelines running on BigQuery, Cloud Dataflow, and Cloud Dataproc. You need to perform health checks and monitor their behavior, and then notify the team managing the pipelines if they fail. You also need to be able to work across multiple projects. Your preference is to use managed products of features of the platform.
+
+What should you do?
+Export the information to Cloud Stackdriver, and set up an Alerting policy
+Run a Virtual Machine in Compute Engine with Airflow, and export the information to Stackdriver
+Export the logs to BigQuery, and set up App Engine to read that information and send emails if you find a failure in the logs
+Develop an App Engine application to consume logs using GCP API calls, and send emails if you find a failure in the logs
+
+Answer is Export the information to Cloud Stackdriver, and set up an Alerting policy
+
+Monitoring does not only provide you with access to Dataflow-related metrics, but also lets you to create alerting policies and dashboards so you can chart time series of metrics and choose to be notified when these metrics reach specified values.
+
+---
+
+Question 130
+
+Suppose you have a table that includes a nested column called "city" inside a column called "person", but when you try to submit the following query in BigQuery, it gives you an error. SELECT person FROM `project1.example.table1` WHERE city = "London"
+How would you correct the error?
+Add ", UNNEST(person)" before the WHERE clause.
+Change "city" to "person.city".
+Change "person" to "city.person".
+Add ", UNNEST(city)" before the WHERE clause.
+
+If you need to filter based on a nested column without unnesting, you can directly reference it using the dot notation as shown. However, if you need to work with repeated fields, you might need to use UNNEST. Here's how you would use it:
+```
+SELECT person
+FROM `project1.example.table1`,
+UNNEST(person) AS p
+WHERE p.city = "London"
+Use UNNEST when dealing with repeated fields to flatten the array and access individual elements.
+```
 
 
-
-
-
-
-
-
-
+---
