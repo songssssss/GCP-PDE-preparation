@@ -375,6 +375,61 @@ Use Cloud Dataflow and write the data to Cloud Storage.
 Write a job template in Cloud Dataproc to perform the data transfer.
 Install an FTP server on a Compute Engine VM to receive the files and move them to Cloud Storage.
 
+Answer is Execute gsutil rsync from the on-premises servers.
+
+Dataflow is on cloud is external; "don't allow access from external IPs to their on-premises resources" so no dataflow.
+---
+Question 113
+
+You have Cloud Functions written in Node.js that pull messages from Cloud Pub/Sub and send the data to BigQuery. You observe that the message processing rate on the Pub/Sub topic is orders of magnitude higher than anticipated, but there is no error logged in Stackdriver Log Viewer.
+
+What are the two most likely causes of this problem? (Choose two.)
+Publisher throughput quota is too small.
+Total outstanding messages exceed the 10-MB maximum.
+Error handling in the subscriber code is not handling run-time errors properly.
+The subscriber code cannot keep up with the messages.
+The subscriber code does not acknowledge the messages that it pulls.
+
+Answers are;
+C. Error handling in the subscriber code is not handling run-time errors properly.
+E. The subscriber code does not acknowledge the messages that it pulls.
+
+By not acknowleding the pulled message, this result in it be putted back in Cloud Pub/Sub, meaning the messages accumulate instead of being consumed and removed from Pub/Sub. The same thing can happen ig the subscriber maintains the lease on the message it receives in case of an error. This reduces the overall rate of processing because messages get stuck on the first subscriber. Also, errors in Cloud Function do not show up in Stackdriver Log Viewer if they are not correctly handled.
+A: No problem with publisher rate as the observed result is a higher number of messages and not a lower number.
+B: if messages exceed the 10MB maximum, they cannot be published.
+D: Cloud Functions automatically scales so they should be able to keep up.
+
+
+---
+Question 118
+
+You currently have a single on-premises Kafka cluster in a data center in the us-east region that is responsible for ingesting messages from IoT devices globally. Because large parts of globe have poor internet connectivity, messages sometimes batch at the edge, come in all at once, and cause a spike in load on your Kafka cluster. This is becoming difficult to manage and prohibitively expensive.
+
+What is the Google-recommended cloud native architecture for this scenario?
+Edge TPUs as sensor devices for storing and transmitting the messages.
+Cloud Dataflow connected to the Kafka cluster to scale the processing of incoming messages.
+An IoT gateway connected to Cloud Pub/Sub, with Cloud Dataflow to read and process the messages from Cloud Pub/Sub.
+A Kafka cluster virtualized on Compute Engine in us-east with Cloud Load Balancing to connect to the devices around the world.
+
+Answer is An IoT gateway connected to Cloud Pub/Sub, with Cloud Dataflow to read and process the messages from Cloud Pub/Sub.
+
+Alterative to Kafka in google cloud native service is Pub/Sub and Dataflow punched with Pub/Sub is the google recommended option
+
+---
+Question 119
+
+You have a petabyte of analytics data and need to design a storage and processing platform for it. You must be able to perform data warehouse-style analytics on the data in Google Cloud and expose the dataset as files for batch analysis tools in other cloud providers.
+What should you do?
+Store and process the entire dataset in BigQuery.
+Store and process the entire dataset in Cloud Bigtable.
+Store the full dataset in BigQuery, and store a compressed copy of the data in a Cloud Storage bucket.
+Store the warm data as files in Cloud Storage, and store the active data in BigQuery. Keep this ratio as 80% warm and 20% active.
+
+Explanation:
+BigQuery: Ideal for data warehouse-style analytics due to its scalability, ease of use, and powerful querying capabilities.
+Cloud Storage: Provides a way to store a compressed copy of the data, making it accessible for batch processing tools on other cloud providers.
+
+BigQuery can read compressed files directly if they are in supported formats like GZIP for CSV and JSON files. However, it cannot query directly from compressed files in Cloud Storage. You would need to load or query the data into BigQuery, where it can handle compressed input during loading
 
 
 
