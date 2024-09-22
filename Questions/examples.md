@@ -456,6 +456,23 @@ Explanation:
 Historical Data Storage: Cloud Storage can retain Avro files indefinitely, and BigQuery can maintain at least 2 years of historical data for querying.
 
 This setup efficiently handles ingestion, transformation, and storage while meeting all specified requirements.
+---
+Question 123
+
+Data Analysts in your company have the Cloud IAM Owner role assigned to them in their projects to allow them to work with multiple GCP products in their projects. Your organization requires that all BigQuery data access logs be retained for 6 months. You need to ensure that only audit personnel in your company can access the data access logs for all projects.
+
+What should you do?
+Enable data access logs in each Data Analyst's project. Restrict access to Stackdriver Logging via Cloud IAM roles.
+Export the data access logs via a project-level export sink to a Cloud Storage bucket in the Data Analysts' projects. Restrict access to the Cloud Storage bucket.
+Export the data access logs via a project-level export sink to a Cloud Storage bucket in a newly created projects for audit logs. Restrict access to the project with the exported logs.
+Export the data access logs via an aggregated export sink to a Cloud Storage bucket in a newly created project for audit logs. Restrict access to the project that contains the exported logs.
+
+Answer is Export the data access logs via an aggregated export sink to a Cloud Storage bucket in a newly created project for audit logs. Restrict access to the project that contains the exported logs.
+
+Aggregated log sink will create a single sink for all projects, the destination can be a google cloud storage, pub/sub topic, bigquery table or a cloud logging bucket. without aggregated sink this will be required to be done for each project individually which will be cumbersome.
+
+Reference:
+https://cloud.google.com/logging/docs/export/aggregated_sinks
 
 ---
 Question 127
