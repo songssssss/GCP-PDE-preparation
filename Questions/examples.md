@@ -316,10 +316,40 @@ When dealing with data pipeline failures in Google Cloud Dataflow due to errors 
    erroneous_data.erroneous_rows | 'WriteErrorsToPubSub' >> WriteToPubSub(...)
    main_data.main | 'WriteToBigQuery' >> WriteToBigQuery(...)
    ```
+---
+Question 104
+
+You are a head of BI at a large enterprise company with multiple business units that each have different priorities and budgets. You use on-demand pricing for BigQuery with a quota of 2K concurrent on-demand slots per project. Users at your organization sometimes don't get slots to execute their query and you need to correct this. You'd like to avoid introducing new projects to your account.
+
+What should you do?
+Convert your batch BQ queries into interactive BQ queries.
+Create an additional project to overcome the 2K on-demand per-project quota.
+Switch to flat-rate pricing and establish a hierarchical priority model for your projects.
+Increase the amount of concurrent slots per project at the Quotas page at the Cloud Console.
 
 3. **Process SideOutput Data**: Set up a separate process or pipeline to handle and reprocess the erroneous data stored in Pub/Sub or another sink.
 
 This approach ensures that your pipeline remains reliable and that errors are effectively managed and reprocessed, enhancing the overall robustness of your data processing workflows.
+
+
+You might simply prefer a fixed monthly bill, or encounter workloads that are extremely sensitive to query latency, and thus have predictability and control requirements that cannot be met by the on-demand service. For such situations, you can use the flat-rate service. In this model, a certain number of slots are dedicated to your project(s), and you can establish a hierarchical priority model amongst the projects. The flat-rate model is especially suitable for large enterprises with multiple business units and workloads with varying priorities and budgets. For instance, the arrangement illustrated below gives priority to queries that are issued from the “Dashboarding” project over the queries from the other two projects. But even with prioritization, slots won’t be wasted. If the prioritized “Dashboarding” project does not use all its dedicated slots, they’ll be distributed among the remaining projects. Even data stored in the “Data Science” project can be queried from the “Dashboarding” project with a higher priority than when it’s queried from within the “Data Science” project itself.
+
+---
+
+
+Question 106
+
+Your team is responsible for developing and maintaining ETLs in your company. One of your Dataflow jobs is failing because of some errors in the input data, and you need to improve reliability of the pipeline (incl. being able to reprocess all failing data).
+
+What should you do?
+Add a filtering step to skip these types of errors in the future, extract erroneous rows from logs.
+Add a try... catch block to your DoFn that transforms the data, extract erroneous rows from logs.
+Add a try... catch block to your DoFn that transforms the data, write erroneous rows to PubSub directly from the DoFn.
+Add a try... catch block to your DoFn that transforms the data, use a sideOutput to create a PCollection that can be stored to PubSub later.
+
+
+
+
 
 
 
