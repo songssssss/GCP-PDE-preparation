@@ -8,6 +8,24 @@
 </p>
 </details>
 
+Here are the approximate figures for the handling capacity of Cloud SQL, Cloud Firestore (formerly Datastore), Cloud Spanner, and Bigtable:
+
+- Cloud SQL:
+Volume Handling: Cloud SQL can handle databases ranging from a few gigabytes to several terabytes in size, depending on the instance type and configuration.
+Scaling: While Cloud SQL can handle moderate data volumes, it may start to face challenges with extremely large datasets and high traffic compared to other Google Cloud database services. It is more suitable for small to medium-sized databases.
+Cloud Firestore (formerly Datastore):
+Volume Handling: Cloud Firestore (Datastore) is designed for high scalability and can handle massive volumes of data. It can easily scale to handle datasets exceeding multiple terabytes.
+Scaling: Cloud Firestore is well-suited for applications that require high scalability and can handle very large datasets and high request rates effectively.
+- Cloud Spanner:
+Volume Handling: Cloud Spanner is designed to handle very large volumes of data across multiple regions. It can handle datasets ranging from terabytes to multiple petabytes.
+Scaling: Cloud Spanner is highly scalable and can handle very large volumes of data with strong consistency and high availability across regions.
+- Bigtable:
+Volume Handling: Bigtable is designed to handle massive amounts of data, ranging from terabytes to petabytes and beyond.
+Scaling: Bigtable is a highly scalable NoSQL database that can handle very large volumes of data and high throughput, making it suitable for applications that require low-latency data access at scale.
+These figures are approximate and can vary based on the specific use case, instance configurations, data structures, and other factors. It's crucial to consider the specific requirements of your application when selecting a database service to ensure it can effectively handle the expected data volume and traffic.
+
+
+
 ## Cloud Storage
  - It is a bucket, or we can call it a blob storage - similar to *Amazon S3*
  - The content is not indexed at all.
