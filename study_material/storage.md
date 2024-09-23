@@ -338,7 +338,12 @@ Refer to this [link](https://cloud.google.com/bigquery/docs/introduction) for do
 - Data Export - 
 	- Data can only be exported in JSON / CSV / Avro
 	- To export more than 1 GB of data, you need to put a wildcard in the destination filename. (up to 1 GB of table data to a single file)
-
+ 	- annot export table data to a local file, to Google Sheets, or to Google Drive. The only supported export location is Cloud Storage. For information on saving query results, see Downloading and saving query results.
+  	- You can export up to 1 GB of table data to a single file. If you are exporting more than 1 GB of data, use a wildcard to export the data into multiple files. When you export data to multiple files, the size of the files will vary.
+  	- You cannot export nested and repeated data in CSV format. Nested and repeated data is supported for Avro and JSON exports.
+  	- When you export data in JSON format, INT64 (integer) data types are encoded as JSON strings to preserve 64-bit precision when the data is read by other systems.
+  	- You cannot export data from multiple tables in a single export job.
+  	- You cannot choose a compression type other than GZIP when you export data using the Cloud Console or the classic BigQuery web UI.
 </p>
 </details>
 
