@@ -13,7 +13,7 @@ Here are the approximate figures for the handling capacity of Cloud SQL, Cloud F
 - Cloud SQL:
 Volume Handling: Cloud SQL can handle databases ranging from a few gigabytes to several terabytes in size, depending on the instance type and configuration.
 Scaling: While Cloud SQL can handle moderate data volumes, it may start to face challenges with extremely large datasets and high traffic compared to other Google Cloud database services. It is more suitable for small to medium-sized databases.
-Cloud Firestore (formerly Datastore):
+- Cloud Firestore (formerly Datastore):
 Volume Handling: Cloud Firestore (Datastore) is designed for high scalability and can handle massive volumes of data. It can easily scale to handle datasets exceeding multiple terabytes.
 Scaling: Cloud Firestore is well-suited for applications that require high scalability and can handle very large datasets and high request rates effectively.
 - Cloud Spanner:
