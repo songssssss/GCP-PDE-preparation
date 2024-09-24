@@ -140,7 +140,6 @@ Bigquery understands UTF-8 encoding anything other than that will result in data
 If you don't specify an encoding, or if you specify UTF-8 encoding when the CSV file is not UTF-8 encoded, BigQuery attempts to convert the data to UTF-8. Generally, your data will be loaded successfully, but it may not match byte-for-byte what you expect
 --
 ## Q49
-
 Transfer Service is recommended for bandwidth 300mbps or faster
 
 Follow these rules of thumb when deciding whether to use gsutil or Storage Transfer Service:
@@ -150,6 +149,84 @@ Follow these rules of thumb when deciding whether to use gsutil or Storage Trans
 - Transferring more than 1 TB from on-premises Use Transfer service for on-premises data.
 - Transferring less than 1 TB from another Cloud Storage region Use gsutil.
 - Transferring more than 1 TB from another Cloud Storage region Use Storage Transfer Service.
+
+C: gsutil parallel ingestion will reduce time
+E: Storage Transfer service needs good internet and used for large size of data and for on premises storage, this one is regular ingestion.
+
+---
+## Q50
+NoSQL: HBase, Cassandra, MongDB, Redis
+Redis is limited to 1 TB capacity quota per region. So it doesn't satisfy the requirement.
+
+NoSQL, telemetry data, IoT, high availability and low latency, not require ACID 
+HBase, Cassandra, MongDB
+
+A. Redis - Redis is an in-memory non-relational key-value store. Redis is a great choice for implementing a highly available in-memory cache to decrease data access latency, increase throughput, and ease the load off your relational or NoSQL database and application. Since the question does not ask cache,
+E. Cassandra - Apache Cassandra is an open source NoSQL distributed database trusted by thousands of companies for scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it the perfect platform for mission-critical data.
+F. HDFS with Hive - Hive allows users to read, write, and manage petabytes of data using SQL. Hive is built on top of Apache Hadoop, which is an open-source framework used to efficiently store and process large datasets. As a result, Hive is closely integrated with Hadoop, and is designed to work quickly on petabytes of data. HIVE IS NOT A DATABSE.
+
+Hive: data warehouse infrastructure
+Apache Hadoop is an open-source framework designed for distributed storage and processing of large datasets across clusters of commodity hardware. 
+---
+## Q52
+**DataProc Roles**
+viewer role will not be able to submit dataproc jobs
+---
+## Q53
+BigQuery query plan: 
+Purple is reading, Blue is writing
+
+Group by queries in BigQuery can run slowly when there is significant data skew on the grouped columns. Since the query is grouping by country, if most rows have the same country value, all that data will need to be shuffled to a single reducer to perform the aggregation. This can cause a data skew slowdown.
+---
+## Q54
+Auction application. Bid
+It has pub/sub push, more real time than pub/sub pull. You need to aware at some point, something has to be pulled which adds a latency.
+Push: near real-time
+Pull: add latency
+---
+#Q55
+ODBC connections require standard SQL, not legacy SQL.
+
+Legacy SQL vs Standard, BQ supports legacy SQL but ODBC or Most RDBMS connection doesn't support Legacy SQL, so in this case we need to create a new view on existing view or replace the existing one by changing syntax.
+For ODBC, you just need a service account to authenticate as its external service connection. 
+---
+## Q56
+`TABLE_DATE_RANGE()` : Queries multiple daily tables that span a date range.
+ TABLE DATE RANGE function in legacy SQL
+---
+## Q57
+
+For unbound collection, this will fail if any aggregation function is done
+
+Beam’s default windowing behavior is to assign all elements of a PCollection to a single, global window and discard late data
+even for unbounded PCollections. Before you use a grouping transform such as GroupByKey on an unbounded PCollection, you must do at least
+one of the following:
+—->>>>>>Set a non-global windowing function. See Setting your PCollection’s windowing function.
+Set a non-default trigger. This allows the global window to emit results under other conditions, since the default windowing behavior (waiting for
+all data to arrive) will never occur.
+—->>>>If you don’t set a non-global windowing function or a non-default trigger for your unbounded PCollection and subsequently use a
+grouping transform such as GroupByKey or Combine, your pipeline will generate an error upon construction and your job will fail. Global windowing is the default behavior,
+
+---
+## Q58
+Cloud SQL would be the most appropriate choice for the online retailer in this scenario. Cloud SQL is a fully-managed relational database service that allows for easy management and analysis of data using SQL. It is well-suited for applications built on Google App Engine and can handle the transactional workload of an e-commerce application, as well as the analytical workload of a BI tool.
+
+BigQuery is good for the analysis part but it's not good for managing transactions. If the question needed a database just to store the data for analysis it would be ok. But if we want to update single transactions or add them row by row, then it's not good. BigQuery is not made to support an application. It's a DW.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
