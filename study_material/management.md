@@ -23,6 +23,41 @@ TYPES OF ROLES
 ├── Custom
 │   ├── Combined collection of permissions
 ```
+In Google Cloud IAM (Identity and Access Management), roles are used to grant specific permissions to users, groups, or service accounts. Roles can be broadly categorized into three types:
+
+### 1. **Basic Roles**
+These roles are predefined and apply to all Google Cloud services. They include:
+
+- **Viewer (`roles/viewer`)**: Grants read-only access to all resources.
+- **Editor (`roles/editor`)**: Grants read and write access to all resources, including the ability to modify them.
+- **Owner (`roles/owner`)**: Grants full control over all resources, including the ability to manage roles and permissions.
+
+### 2. **Predefined Roles**
+These roles are specific to certain services and provide granular permissions. For example:
+
+- **BigQuery Roles**:
+  - **BigQuery Data Viewer (`roles/bigquery.dataViewer`)**: Read access to BigQuery datasets and tables.
+  - **BigQuery Data Editor (`roles/bigquery.dataEditor`)**: Read and write access to BigQuery datasets and tables.
+  - **BigQuery Admin (`roles/bigquery.admin`)**: Full control over BigQuery resources.
+
+- **Compute Engine Roles**:
+  - **Compute Instance Admin (`roles/compute.instanceAdmin`)**: Manage VM instances.
+  - **Compute Network Admin (`roles/compute.networkAdmin`)**: Manage networking resources.
+
+### 3. **Custom Roles**
+Custom roles allow you to create roles tailored to your specific needs by combining various permissions. This provides flexibility in granting access based on the specific actions a user or service account needs to perform.
+- **Authorized Viewer Role**: roles/iam.authorizedViewer
+	- Purpose: View metadata and resources without accessing sensitive data.
+	- Use Case: Data governance, compliance, and controlled access scenarios.
+
+### Additional Categories
+- **Service Accounts**: Roles can also be assigned to service accounts, allowing applications to perform actions on Google Cloud resources.
+- **Organization and Folder Roles**: Roles can be applied at the organization or folder level to manage access across multiple projects.
+
+### Summary of Roles
+- **Basic Roles**: Viewer, Editor, Owner.
+- **Predefined Roles**: Service-specific roles (e.g., BigQuery Data Viewer, Compute Instance Admin).
+- **Custom Roles**: Tailored roles based on specific permissions.
 
 ## Stackdriver
 [Link](https://cloud.google.com/products/operations) to docs
