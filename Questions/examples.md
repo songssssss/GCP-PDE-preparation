@@ -544,3 +544,67 @@ Use UNNEST when dealing with repeated fields to flatten the array and access ind
 
 
 ---
+Question 138
+
+What are two methods that can be used to denormalize tables in BigQuery?
+1) Split table into multiple tables; 2) Use a partitioned table
+1) Join tables into one table; 2) Use nested repeated fields
+1) Use a partitioned table; 2) Join tables into one table
+1) Use nested repeated fields; 2) Use a partitioned table
+
+   
+Denormalization in BigQuery can improve query performance by reducing the number of joins needed between tables. Here are two common methods to denormalize tables in BigQuery:
+
+### 1. **Nested and Repeated Fields**
+BigQuery supports nested and repeated fields, which allow you to store related data in a single table instead of separate tables. This method is particularly useful for handling one-to-many relationships.
+
+- **Nested Fields**: You can create a column that is itself a structured type (a record) containing multiple fields.
+  
+- **Repeated Fields**: You can create an array of records to store multiple values for a single field.
+
+**Example**:
+Instead of having separate tables for `users` and `orders`, you could have a single table where each user record contains an array of their orders.
+
+```sql
+CREATE TABLE users (
+  user_id INT64,
+  name STRING,
+  orders ARRAY<STRUCT<order_id INT64, order_date DATE, total_amount FLOAT64>>
+);
+```
+
+### 2. **Flattening Tables**
+Flattening involves merging related tables into a single flat table, which can eliminate the need for joins and speed up query performance. This is often done through queries that combine multiple related tables into one.
+
+**Example**:
+You can use a `JOIN` operation to combine a `users` table and an `orders` table into a single denormalized table:
+
+```sql
+CREATE TABLE denormalized_users AS
+SELECT
+  u.user_id,
+  u.name,
+  o.order_id,
+  o.order_date,
+  o.total_amount
+FROM
+  users u
+LEFT JOIN
+  orders o ON u.user_id = o.user_id;
+```
+
+### Summary
+- **Nested and Repeated Fields**: Use structured types to store related data within a single table.
+- **Flattening Tables**: Merge multiple related tables into a single flat table to reduce the need for joins.
+
+Both methods can help improve query performance in BigQuery by reducing complexity and the volume of data processed during queries. If you have more questions or need additional examples, feel free to ask!
+
+---
+Question 139
+
+Once table is created, you cannot change it partitioned
+
+---
+
+
+
