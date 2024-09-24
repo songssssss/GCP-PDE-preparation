@@ -243,7 +243,7 @@ Refer to this [link](https://cloud.google.com/bigquery/docs/introduction) for do
 - Used for load, query, extract or query data
 - No join is preferred in BigQuery
 - The data should be denormalized
-- Denormalizing in BigQuery can be done with **nested and repeated columns**
+- Denormalizing in BigQuery can be done with **nested and repeated columns** and **join tables to create one table**
 - Security can be applied at a project level or dataset or at table level.
 - _Authorized views_ allows to share query results without giving access to the underlying data
 - Caching time = 24 hrs
