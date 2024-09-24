@@ -114,7 +114,42 @@ However, it's essential to consider your specific use case and query patterns wh
 
 Ultimately, the decision to exclude the time component from indexing should be based on a careful evaluation of your application's requirements, query patterns, and the trade-offs between query simplicity, index efficiency, and data accuracy.
 
+---
+## Q45
+C. Create a cron job with Google App Engine Cron Service to run the Cloud Dataflow job.
+Using the Google App Engine Cron Service to run the Cloud Dataflow job allows you to automate the execution of the job. By creating a cron job, you can ensure that the Dataflow job is triggered exactly once per day at a specified time. This approach is automated, reliable, and fits the requirement of processing the log file once per day.
+Actually, google recommends Dataflow over Dataproc for both batch and streaming. Dataproc is only recommended if you are coming from
+hadoop, spark, ....
 
+The App Engine Cron Service allows you to configure regularly scheduled tasks that operate at defined times or regular intervals. These tasks are commonly known as cron jobs. These cron jobs are automatically triggered by the App Engine Cron Service. For instance, you might use this to send out a report email on a daily basis, to update some cached data every 10 minutes, or to update some summary information once an hour.
+
+A cron job makes a scheduled HTTP GET request to the specified endpoint in the same app where the cron job is configured. The handler for that endpoint executes the logic when it is called.
+
+The App Engine Cron Service cannot be used to call web endpoints outside the App Engine host app. It cannot be used to call App Engine endpoints from other apps besides the host app.
+
+Cron job requests are subject to the same limits as other HTTP requests . Free applications can have up to 20 scheduled tasks. Paid applications can have up to 250 scheduled tasks.
+
+---
+## Q47
+optimize the data schema + Machine Learning --> Bigquery
+transactions 
+--
+## Q48
+Bigquery understands UTF-8 encoding anything other than that will result in data issues with schema
+
+If you don't specify an encoding, or if you specify UTF-8 encoding when the CSV file is not UTF-8 encoded, BigQuery attempts to convert the data to UTF-8. Generally, your data will be loaded successfully, but it may not match byte-for-byte what you expect
+--
+## Q49
+
+Transfer Service is recommended for bandwidth 300mbps or faster
+
+Follow these rules of thumb when deciding whether to use gsutil or Storage Transfer Service:
+- Transfer scenario Recommendation
+- Transferring from another cloud storage provider Use Storage Transfer Service.
+- Transferring less than 1 TB from on-premises Use gsutil.
+- Transferring more than 1 TB from on-premises Use Transfer service for on-premises data.
+- Transferring less than 1 TB from another Cloud Storage region Use gsutil.
+- Transferring more than 1 TB from another Cloud Storage region Use Storage Transfer Service.
 
 
 
