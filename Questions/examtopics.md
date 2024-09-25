@@ -354,20 +354,37 @@ Cloud Spanner is a fully managed, mission-critical, relational database service 
 ## Q133
 Bigtable provides lowest latency
 
+---
+# Q137
+You have a data pipeline with a Dataflow job that aggregates and writes time series metrics to Bigtable. You notice that data is slow to update in Bigtable. This data feeds a dashboard used by thousands of users across the organization. You need to support additional concurrent users and reduce the amount of time required to write the data.
+- Increase max num of workers increases pipeline performance in Dataflow
+- Increase number of nodes in Bigtable increases write throughput
 
+B. Increase the maximum number of Dataflow workers by setting maxNumWorkers in PipelineOptions:
+Increasing the number of Dataflow workers can help parallelize the processing of your data, which can result in faster data updates to Bigtable and improved concurrency. You can set maxNumWorkers to a higher value to achieve this.
+C. Increase the number of nodes in the Bigtable cluster:
+Increasing the number of nodes in your Bigtable cluster can improve the overall throughput and reduce latency when writing data. It allows Bigtable to handle a higher rate of data ingestion and queries, which is essential for supporting additional concurrent users.
 
+---
+## Q139
+You are building a new data pipeline to share data between two different types of applications: jobs generators and job runners. Your solution must scale to accommodate increases in usage and must accommodate the addition of new applications without negatively affecting the performance of existing ones.
 
+- Job generators (they would be the publishers).
+- Job runners = subscribers
+Question mentions that it must scale (of which push subscription has automatic scaling) and can accommodate additional new applications (this can be solved by having multiple subscriptions, with each relating to a unique application) to a central topic
 
+App Engine API: While scalable, it introduces a central point of failure and might not be as performant as Pub/Sub for high-volume data.
 
+---
+## Q140
+You need to create a new transaction table in Cloud Spanner that stores product sales data. You are deciding what to use as a primary key. From a performance perspective, which strategy should you choose?
+A random universally unique identifier number (version 4 UUID)
 
+### For a transaction table in Cloud Spanner that stores product sales data, from a performance perspective, it is generally recommended to choose a primary key that allows for even distribution of data across nodes and minimizes hotspots. Therefore, option C, which suggests using a random universally unique identifier number (version 4 UUID), is the preferred choice.
 
-
-
-
-
-
-
-
+---
+## Q141
+Answer D is correct. Aggregated log sink will create a single sink for all projects, the destination can be a google cloud storage, pub/sub topic, bigquery table or a cloud logging bucket. without aggregated sink this will be required to be done for each project individually which will be cumbersome
 
 
 
