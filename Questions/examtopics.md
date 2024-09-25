@@ -386,6 +386,58 @@ A random universally unique identifier number (version 4 UUID)
 ## Q141
 Answer D is correct. Aggregated log sink will create a single sink for all projects, the destination can be a google cloud storage, pub/sub topic, bigquery table or a cloud logging bucket. without aggregated sink this will be required to be done for each project individually which will be cumbersome
 
+---
+## Q142
+Create a Cloud Monitoring dashboard based on the BigQuery metric slots/allocated_for_project
+This metric represents the number of BigQuery slots allocated for a project. By creating a Cloud Monitoring dashboard based on this metric, you can monitor the slot usage within each project in your organization. This will allow each team to monitor their own slot usage and ensure that they are not exceeding their allocated quota.
+
+---
+## Q144
+Description: Huge amount of data with log network bandwidth, Transfer applicate is best for moving data over 100TB
+
+---
+## Q148
+AutoML is used to train model and do damage detection
+Auto Vision is used is a pre trained model used to detect objects in images
+
+AutoML:
+Custom Model Training: AutoML allows users to train custom machine learning models tailored to specific datasets and use cases. It's designed for users who may not have extensive machine learning expertise but want to create specialized models.
+Cloud Vision API:
+Pre-trained Models: The Cloud Vision API provides access to pre-trained machine learning models for common tasks such as image labeling, text detection, face detection, and object localization. It’s ready to use without the need for additional training.
+
+
+Answer is B. Train an AutoML model on your corpus of images, and build an API around that model to integrate with the package tracking applications.
+
+For this scenario, where you need to automate the detection of damaged packages in real time while they are in transit, the most suitable solution among the provided options would be B.
+
+Here's why this option is the most appropriate:
+
+Real-Time Analysis: AutoML provides the capability to train a custom model specifically tailored to recognize patterns of damage in packages. This model can process images in real-time, which is essential in your scenario.
+
+Integration with Existing Systems: By building an API around the AutoML model, you can seamlessly integrate this solution with your existing package tracking applications. This ensures that the system can flag damaged packages for human review efficiently.
+
+Customization and Accuracy: Since the model is trained on your specific corpus of images, it can be more accurate in detecting damages relevant to your use case compared to pre-trained models.
+
+Let's briefly consider why the other options are less suitable:
+A. Use BigQuery machine learning: BigQuery is great for handling large-scale data analytics but is not optimized for real-time image processing or complex image recognition tasks like damage detection on packages.
+
+C. Use the Cloud Vision API: While the Cloud Vision API is powerful for general image analysis, it might not be as effective for the specific task of detecting damage on packages, which requires a more customized approach.
+
+D. Use TensorFlow in Cloud Datalab: While this is a viable option for creating a custom model, it might be more complex and time-consuming compared to using AutoML. Additionally, setting up a real-time analysis system through a Python notebook might not be as straightforward as an API integration.
+
+---
+## Q150
+Sufficient Disk Capacity: Increasing the disk space ensures that there is enough room for all intermediate data, which is crucial for disk I/O intensive jobs. However, it’s important to note that simply increasing capacity does not directly improve speed; the combination of using HDFS for I/O-intensive operations and having sufficient space to avoid bottlenecks is key.
+
+
+
+
+
+
+
+
+
+
 
 
 
