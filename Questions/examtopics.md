@@ -430,11 +430,13 @@ D. Use TensorFlow in Cloud Datalab: While this is a viable option for creating a
 Sufficient Disk Capacity: Increasing the disk space ensures that there is enough room for all intermediate data, which is crucial for disk I/O intensive jobs. However, it’s important to note that simply increasing capacity does not directly improve speed; the combination of using HDFS for I/O-intensive operations and having sufficient space to avoid bottlenecks is key.
 
 
-
-
-
-
-
+---
+## Q154
+Cloud SQL using MySQL. You need to ensure high availability in the event of a zone failure
+Failover Replica: By creating a failover replica in another zone within the same region, you establish a high-availability configuration. The failover replica is kept in sync with the primary instance, and it can quickly take over in case of a failure of the primary instance.
+Same Region: Placing the failover replica in the same region ensures minimal latency and data consistency. In the event of a zone failure, the failover can happen within the same region, reducing potential downtime.
+Zone Resilience: Google Cloud's regional design ensures that zones within a region are independent of each other, which adds resilience to zone failures.
+Automatic Failover: In case of a primary instance failure, Cloud SQL will automatically promote the failover replica to become the new primary instance, minimizing downtime.
 
 
 
