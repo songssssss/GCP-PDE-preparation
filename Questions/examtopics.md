@@ -325,6 +325,10 @@ Graceful decommissioning: to finish work in progress on a worker before it is re
 Use Graceful Decommissioning for don't lose any data and add more(increase the cluster) preemptible workers because there are more cost-effective .
 Increase the cluster size with preemptible worker nodes, and configure them to use graceful decommissioning.
 
+---
+## 129
+If the corruption is caught within 7 days, query the table to a point in time in the past to recover the table prior to the corruption using snapshot decorators.
+
 
 
 
