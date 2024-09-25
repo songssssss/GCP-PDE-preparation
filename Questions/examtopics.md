@@ -338,15 +338,21 @@ Avoid updates in Datawarehousing environment instead use merge to create a new t
 "Google Cloud Deployment Manager is an infrastructure deployment service that automates the creation and management of Google Cloud
 resources. Write flexible template and configuration files and use them to create deployments that have a variety of Google Cloud services"
 
+---
+## Q132
+A - NO - BigQuery with must have a selected regional or multi-regional file storage
+B - YES - Spanner is specifically designed for this high and consistent throughput
+C - NO - I am not sure about what many said in this discussion as Cloud SQL can store this amount of records if u have just a few columns. Anyway
+for sure Spanner is better and it is a GCP product.
+D - Bigtable - it's a NoSQL solution, no ANSI
 
+Cloud Spanner is the first scalable, enterprise-grade, globally-distributed, and strongly consistent database service built for the cloud specifically to combine the benefits of relational database structure with non-relational horizontal scale.
+Cloud Spanner is a fully managed, mission-critical, relational database service that offers transactional consistency at global scale, schemas, SQL
+(ANSI 2011 with extensions), and automatic, synchronous replication for high availability.
 
-
-
-
-
-
-
-
+---
+## Q133
+Bigtable provides lowest latency
 
 
 
