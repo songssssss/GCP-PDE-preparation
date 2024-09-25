@@ -213,6 +213,128 @@ Cloud SQL would be the most appropriate choice for the online retailer in this s
 
 BigQuery is good for the analysis part but it's not good for managing transactions. If the question needed a database just to store the data for analysis it would be ok. But if we want to update single transactions or add them row by row, then it's not good. BigQuery is not made to support an application. It's a DW.
 
+---
+## Q82
+Streaming ingestion -> Partitioned table rather than sharded tables
+
+---
+## Q85
+Flat-rate service: a certain number of slots are dedicated to your projects. It is suitable for large enterprises with multiple business units and workloads with varying priorities and budgets.
+
+---
+## Q87
+# By default, preemptible node disk sizes are limited to 100GB or the size of the non-preemptible node disk sizes, whichever is smaller.
+However you can override the default preemptible disk size to any requested size. Since the majority of our cluster is using preemptible nodes,
+the size of the disk used for caching operations will see a noticeable performance improvement using a larger disk. Also, SSD's will perform
+better than HDD. This will increase costs slightly, but is the best option available while maintaining costs.
+
+IF your work involves a lot of shuffling job, Aim for around 1GB per file (spark partition) (1). So by making parquet files larger, row groups can still be the same
+
+---
+## Q88
+Adding a try-catch block to the DoFn that transforms the data would allow you to catch and handle errors within the pipeline. However, storing erroneous rows in Pub/Sub directly from the DoFn (Option C) could potentially create a bottleneck in the pipeline, as it adds additional I/O operations to the data processing.
+Better use sideoutput as it doesn't make the workload heavier.
+
+---
+## Q89
+use L1 regularization becuase we know the feature is a strong feature. L2 will evenly distribute weights
+Use L1 regularization when you need to assign greater importance to more influential features. It shrinks less important feature to 0.
+L2 regularization performs better when all input features influence the output & all with the weights are of equal size.
+
+---
+## Q90
+MariaDB is a community-developed, commercially supported fork of the MySQL relational database management system (RDBMS). To collect logs and metrics for MariaDB, use the mysql receivers.
+The mysql receiver connects by default to a local MariaDB server using a Unix socket and Unix authentication as the root user.
+
+---
+## Q92
+- Cloud SQL is cheap and relational DB.
+- Cloud SQL: max storage for shared core = 3TB and for dedicated core = up to 64TB
+- Only use Spanner if we need autoscale (Note that Cloud SQL could scale too but not automatic yet) or the size is too big (as above > 10TB) or 4/5 9s HA (Cloud SQL is only 99.95)
+- 
+---
+## Q93
+### Bigtable for a real-time application, and you have a heavy load that is a mix of read and writes.
+
+In the context of databases and cloud services, a **"live-traffic app profile"** refers to a configuration or set of parameters tailored for handling real-time, interactive workloads. This profile optimizes the database for low latency and high throughput, making it suitable for applications that require immediate data access and quick response times.
+
+### Key Features of a Live-Traffic App Profile
+
+1. **Low Latency**: The profile is designed to minimize response times, ensuring that user interactions (like API calls, web requests, etc.) are processed quickly.
+
+2. **High Throughput**: It can handle a large number of concurrent requests, which is crucial for applications with many users or frequent updates.
+
+3. **Optimized Resource Allocation**: Resources (such as CPU and memory) may be allocated specifically for real-time processing to ensure consistent performance under load.
+
+4. **Read and Write Optimization**: The profile may optimize read and write operations to ensure that data can be quickly accessed and updated, crucial for applications like e-commerce sites, social media, or live data dashboards.
+
+5. **Connection Management**: It may include settings for managing a high number of simultaneous connections, which is often necessary for applications with a large user base.
+
+6. **Monitoring and Scaling**: The profile might have built-in monitoring tools to track performance and trigger automatic scaling when needed, ensuring that the application remains responsive.
+
+### Use Case Examples
+- **E-Commerce**: Handling transactions and user queries in real-time.
+- **Social Media**: Displaying live feeds and processing user interactions immediately.
+- **Gaming**: Managing real-time updates and interactions among players.
+
+By utilizing a live-traffic app profile, organizations can ensure that their applications meet the demands of users in real-time, providing a smooth and responsive experience.
+
+---
+## Q95
+Adding more nodes to a cluster (not replication) can improve the write performance
+Key visualizer is Metrics for Performance issues. The key visualizer metrics options, suggest other things other than increase the cluster size. 
+s Key Visualizer, it means the row key needs re-design again.
+
+Storage utilization (% max)
+- The percentage of the cluster's storage capacity that is being used. The capacity is based on the number of nodes in your cluster.
+In general, do not use more than 70% of the hard limit on total storage, so you have room to add more data.
+
+---
+## Q98
+The security rules **don't allow access from external IPs to their on-premises resources**. After an initial upload, they will add new data from existing on-premises applications every day. W
+
+The gsutil tool is the standard tool for small- to medium-sized transfers (less than 1 TB) over a typical enterprise-scale network, from a private data center to Google Cloud. We recommend that you include gsutil in your default path when you use Cloud Shell. It's also available by default when you install the Google Cloud CLI. It's a reliable tool that provides all the basic features you need to manage your Cloud Storage instances, including copying your data to and from the local file system and Cloud Storage. It can also move and rename objects and perform real-time incremental syncs, like rsync, to a Cloud Storage bucket.
+
+--- 
+## Q100
+need the data to be available within 1 minute of ingestion for real-time analysis” → low latency requirement → Dataflow streaming
+---
+## Q101
+Without knowing the bandwidth, it is not possible to determine whether the upload can be completed within 7 days using gsutil.
+gsutil has a limit of 1TBaccording to Google documentation,if data is morethan 1TBthen we have to use Transfer Appliance.
+
+---
+## Q103
+BigQuery table snapshot preserves the contents of a table (called the base table) at a particular time. You can save a snapshot of a current table, or create a snapshot of a table as it was at any time in the past seven days. A table snapshot can have an expiration; when the configured amount of time has passed since the table snapshot was created, BigQuery deletes the table snapshot. You can query a table snapshot as you would a standard table. Table snapshots are read-only, but you can create (restore) a standard table from a table snapshot, and then you can modify the restored table.
+
+Point-in-time snapshots only have data from the past 7 days at their creation. They can be stored for as long as desired
+---
+## Q104
+The reasons:
+A scheduler like Cloud Scheduler won't handle the dependency on the BigQuery load completion time
+Using Composer allows creating a DAG workflow that can:
+Trigger the BigQuery load
+Wait for BigQuery load to complete
+Trigger the Dataprep Dataflow job
+Dataflow template allows easy reuse of the Dataprep transformation logic
+Composer coordinates everything based on the dependencies in an automated workflow
+
+---
+## Q106
+Graceful decommissioning: to finish work in progress on a worker before it is removed from the Cloud Dataproc cluster
+Use Graceful Decommissioning for don't lose any data and add more(increase the cluster) preemptible workers because there are more cost-effective .
+Increase the cluster size with preemptible worker nodes, and configure them to use graceful decommissioning.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
