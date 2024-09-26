@@ -607,6 +607,11 @@ Choosing between these options depends on your security needs and architecture. 
 
 ---
 ## Q227
+Scalability for Read-Only Clients: Read replicas distribute read traffic across multiple instances, significantly enhancing read capacity to support  large number of clients without impacting write performance.
+High Availability: Standard Tier ensures high availability with automatic failover, minimizing downtime in case of instance failure.
+Minimal Code Changes: Redis clients can seamlessly connect to read replicas without requiring extensive code modifications, enabling a quick
+deployment.
+
 BAsic tier doesn't provide HA.
 B. Create a new Memorystore for Redis instance with Standard Tier. Set capacity to 5 GB and create multiple read replicas. Delete the old instance.
 Rationale:
