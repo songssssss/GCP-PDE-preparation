@@ -784,7 +784,10 @@ Managed Service: Datastream is a fully managed change data capture (CDC) service
 Continuous Synchronization: Datastream is specifically designed for continuous data replication, ensuring that your changes in the Oracle database are reflected in BigQuery in near real-time.
 Private Connectivity: Using a private connectivity configuration ensures secure communication between your Oracle database and BigQuery, adhering to network security best practices.
 
-
+---
+## Q258
+- Cloud Data Fusion is a fully managed, code-free, GUI-based data integration service that allows you to visually connect, transform, and move dat between various sources and sinks. - It supports various file formats and can write to Cloud Storage.
+- You can configure it to use Customer-Managed Encryption Keys (CMEK) for the buckets where it writes data.
 
 
 
