@@ -522,3 +522,35 @@ To receive notifications when a task in your Cloud Composer (Apache Airflow) DAG
 
 Using the `on_failure_callback` allows for targeted and immediate notifications in response to task failures, making it the best option for your scenario. If you have any more questions or need further clarification, feel free to ask!
 
+---
+## 220
+Using Cloud Interconnect provides a private, secure connection between your on-premises environment and Google Cloud ==> This method ensures that data doesn't go through the public internet and is a recommended approach for secure, large-scale data migrations.
+
+---
+## Q221
+- Direct Querying:
+BigQuery Omni allows you to query data in Azure and AWS object stores directly without physically moving it to BigQuery, reducing data transfer costs and delays.
+- BigLake Tables:
+Provide a unified view of both BigQuery tables and external object storage files, enabling seamless querying across multi-cloud data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
