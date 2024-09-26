@@ -473,8 +473,15 @@ So option B isolates the test from production and uses the most rigorous failove
 Analytics Hub can then be used to share this data securely and efficiently with the partner organization, maintaining control and governance over the shared data
 
 ---
+## Q216
 
+Using VPC Network Peering, Cloud SQL implements private service access internally, which allows internal IP addresses to connect across two VPC networks regardless of whether they belong to the same project or organization.
+However, since VPC Network Peering isn't transitive, it only broadcasts routes between the two VPCs that are directly peered. If you have an additional VPC, it won't be able to access your Cloud SQL resources using the connection set up with your original VPC.
+VPC Peering does not traverse the public internet.
+No need proxy but a firewall
 
+---
+## Q21
 
 
 
