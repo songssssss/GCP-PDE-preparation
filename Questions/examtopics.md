@@ -606,6 +606,19 @@ VPC Service Controls are a security feature in Google Cloud that allows you to d
 Choosing between these options depends on your security needs and architecture. If you have more questions or need further clarification, feel free to ask!
 
 ---
+## Q227
+BAsic tier doesn't provide HA.
+B. Create a new Memorystore for Redis instance with Standard Tier. Set capacity to 5 GB and create multiple read replicas. Delete the old instance.
+Rationale:
+Standard Tier: This tier offers high availability with automatic failover and supports read replicas, which is crucial for handling increased read traffic efficiently.
+
+Increased Capacity: Setting the capacity to 5 GB provides more memory to handle a larger dataset and more simultaneous read requests from multiple clients without performance degradation.
+
+Multiple Read Replicas: By creating multiple read replicas, you can distribute the read load, ensuring that no single instance becomes a bottleneck. This is particularly important as the number of clients grows significantly.
+
+Minimal Downtime: Deploying a new instance allows for a smooth transition without interrupting existing services. Once the new instance is operational and validated, you can safely delete the old instance.
+
+---
 ## Q228
 In the context of Google Cloud Pub/Sub, **seek** is a feature that allows you to replay messages in a subscription by moving the acknowledgment (ack) cursor back to a specific point in time or to a specific snapshot. This is particularly useful for scenarios where you need to reprocess messages due to updates in your application logic or if there was an issue with message processing.
 
@@ -629,6 +642,8 @@ In the context of Google Cloud Pub/Sub, **seek** is a feature that allows you to
 
 Seek is a powerful feature that enhances the flexibility and robustness of message processing in Pub/Sub, allowing you to handle data changes and processing errors efficiently. If you have any more questions about this or related topics, feel free to ask!
 
+---
+## Q2
 
 
 
