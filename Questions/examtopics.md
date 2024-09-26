@@ -606,7 +606,28 @@ VPC Service Controls are a security feature in Google Cloud that allows you to d
 Choosing between these options depends on your security needs and architecture. If you have more questions or need further clarification, feel free to ask!
 
 ---
-## Q22
+## Q228
+In the context of Google Cloud Pub/Sub, **seek** is a feature that allows you to replay messages in a subscription by moving the acknowledgment (ack) cursor back to a specific point in time or to a specific snapshot. This is particularly useful for scenarios where you need to reprocess messages due to updates in your application logic or if there was an issue with message processing.
+
+### Key Aspects of Seek:
+
+1. **Replay Messages**: When you seek to a specific timestamp, you can reprocess messages that were published before that timestamp. This allows you to effectively "rewind" to a point in time and handle the messages again.
+
+2. **Snapshots**: You can also seek to a snapshot, which captures the state of a subscription at a certain time. This is helpful for capturing a specific moment's data for reprocessing.
+
+3. **Use Cases**:
+   - **Updating Business Logic**: If you improve your message processing logic, you can seek back to reprocess old messages.
+   - **Error Handling**: If an error occurred during processing, seeking back allows you to reattempt processing without losing messages.
+
+4. **Limits**: The seek operation only applies to acknowledged messages that are retained in the subscription's backlog. This means that if a message has already been acknowledged and the retention period has passed, it may not be available for replay.
+
+### How to Use Seek
+
+- You typically use the seek feature in your application by specifying either a timestamp or a snapshot ID through the Pub/Sub client libraries or REST API.
+
+### Summary
+
+Seek is a powerful feature that enhances the flexibility and robustness of message processing in Pub/Sub, allowing you to handle data changes and processing errors efficiently. If you have any more questions about this or related topics, feel free to ask!
 
 
 
