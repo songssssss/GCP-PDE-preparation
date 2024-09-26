@@ -729,3 +729,13 @@ Data Ownership and Control: Each team retains full control over their data, deci
 Cross-Project Querying: Once a team subscribes to a dataset in Analytics Hub, they can query it directly from their own BigQuery project, enabling seamless data access without data replication.
 Cost Efficiency: Analytics Hub eliminates the need for data duplication or complex ETL processes, reducing storage and processing costs.
 
+---
+## Q245
+- Cloud Data Loss Prevention (Cloud DLP) provides powerful inspection capabilities for sensitive data, including predefined detectors for infoTypes
+such as STREET_ADDRESS.
+- By creating a deep inspection job for each table with the STREET_ADDRESS infoType, you can accurately identify and retrieve rows that contain
+street addresses.
+
+---
+## Q
+
