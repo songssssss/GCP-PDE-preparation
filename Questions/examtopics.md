@@ -481,7 +481,23 @@ VPC Peering does not traverse the public internet.
 No need proxy but a firewall
 
 ---
-## Q21
+## Q218
+Capacity Restoration: Promoting the Region2 replica makes it the new primary. You need to replicate from this new primary to maintain redundancy and capacity. Creating two replicas (Region3, new region) accomplishes this.
+Geographic Distribution: Distributing replicas across regions ensures availability if another regional event occurs.
+Speed: Creating new replicas from the promoted primary is likely faster than promoting another existing replica.
+When you promote a read replica in Cloud SQL for PostgreSQL, that read replica becomes the new primary instance. After the promotion, the former read replica is no longer a read replica; it is now a standalone primary instance. 
+
+### Key Points:
+
+1. **Promotion**: When you promote a read replica, it is transitioned to become the primary instance. It stops replicating from the original primary and operates independently.
+
+2. **Read Replicas**: Once a read replica is promoted, it cannot act as a read replica for the original primary instance anymore. You would need to create new read replicas from the newly promoted primary instance if you want additional read capacity.
+
+3. **Capacity**: After the promotion, if you need to maintain or increase your read capacity, you should create new read replicas from the newly promoted primary instance to distribute read loads effectively.
+
+### Summary
+
+In short, after promoting a read replica, it cannot serve as a read replica anymore, and you would need to establish new replicas for redundancy and load balancing. If you have further questions or need more details, feel free to ask!
 
 
 
