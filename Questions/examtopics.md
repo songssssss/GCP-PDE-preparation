@@ -702,8 +702,20 @@ Separation of Concerns: This approach separates the analytics workload (BigQuery
  ## Q238
 Implement Authenticated Encryption with Associated Data (AEAD) BigQuery functions while storing your data in BigQuery.
 
+---
+## Q240
+- dataplex.dataOwner: Grants full control over data assets, including reading, writing, managing, and granting access to others.
+- dataplex.dataReader: Allows users to read data but not modify it.
 
+---
+## Q241
+- Dual-region buckets are a specific type of storage that automatically replicates data between two geographically distinct regions.
+- Turbo replication is an enhanced feature that provides faster replication between the two regions, thus minimizing RPO.
+- This option ensures that your data is resilient to regional failures and is replicated quickly, meeting the needs for low RPO and no impact on application performance.
 
+"Default replication in Cloud Storage is designed to provide redundancy across regions for 99.9% of newly written objects within a target of one hour and 100% of newly written objects within a target of 12 hours"
+"When enabled, turbo replication is designed to replicate 100% of newly written objects to both regions that constitute the dual-region within the recovery point objective of 15 minutes, regardless of object size."
+Thus, since they want to minimize RPO, should use turbo replication
 
 
 
