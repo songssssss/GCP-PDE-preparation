@@ -500,5 +500,25 @@ When you promote a read replica in Cloud SQL for PostgreSQL, that read replica b
 In short, after promoting a read replica, it cannot serve as a read replica anymore, and you would need to establish new replicas for redundancy and load balancing. If you have further questions or need more details, feel free to ask!
 
 
+---
+## Q219
+To receive notifications when a task in your Cloud Composer (Apache Airflow) DAG does not succeed, the best approach is:
 
+### **C. Assign a function with notification logic to the `on_failure_callback` parameter for the operator responsible for the task at risk.**
+
+### Rationale:
+
+- **`on_failure_callback`**: This parameter allows you to specify a function that will be executed whenever the task fails. You can implement notification logic within this function to alert you when the task does not succeed, making it a direct and effective solution for failure notifications.
+
+### Why Not the Others?
+
+- **A**: The `on_retry_callback` parameter is called when a task is retried, not when it fails. This wouldn't be appropriate for notifications about task failures.
+
+- **B**: While configuring a Cloud Monitoring alert based on the `sla_missed` metric is useful for tracking SLA violations, it doesn't specifically notify you of task failures. It's more about ensuring tasks meet certain performance thresholds.
+
+- **D**: The `sla_miss_callback` parameter is used to handle situations where a task misses its specified SLA (Service Level Agreement), which is different from a task simply failing. It may not cover all failure scenarios.
+
+### Summary
+
+Using the `on_failure_callback` allows for targeted and immediate notifications in response to task failures, making it the best option for your scenario. If you have any more questions or need further clarification, feel free to ask!
 
