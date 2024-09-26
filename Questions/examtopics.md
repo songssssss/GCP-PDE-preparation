@@ -737,5 +737,11 @@ such as STREET_ADDRESS.
 street addresses.
 
 ---
-## Q
+## Q248
+- The table structure shows that the vCPU data is stored in a nested field within the components column.
+- Using the UNNEST operator to flatten the nested field and apply the filter.
+
+---
+## Q249
+
 
