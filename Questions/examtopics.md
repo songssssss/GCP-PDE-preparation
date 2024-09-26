@@ -746,5 +746,50 @@ The regular reporting doesn't justify a materialized view, since the frequency o
 - Autoclass automatically moves objects between storage classes without impacting performance or availability, nor incurring retrieval costs.
 - It continuously optimizes storage costs based on access patterns without the need to set specific lifecycle management policies.
 ---
-#
+## Q251
+- Setting a retention policy on a Cloud Storage bucket prevents objects from being deleted for the duration of the retention period.
+- Locking the policy makes it immutable, meaning that the retention period cannot be reduced or removed, thus ensuring that the documents
+cannot be deleted or overwritten until the retention period expires.
+
+---
+## Q252
+- A denormalized, append-only model simplifies query complexity by eliminating the need for joins.
+- Adding data with an ingestion timestamp allows for easy retrieval of both current and historical states.
+- Instead of updating records, new records are appended, which maintains historical information without the need to create separate snapshots
+
+---
+## Q253
+- Private Google Access for services allows VM instances with only internal IP addresses in a VPC network or on-premises networks (via Cloud VPN or Cloud Interconnect) to reach Google APIs and services.
+- When you launch a Dataflow job, you can specify that it should use worker instances without external IP addresses if Private Google Access is enabled on the subnetwork where these instances are launched.
+- This way, your Dataflow workers will be able to access Cloud Storage and BigQuery without violating the organizational constraint of no external IPs.
+VPC Service Controls are typically used to define and enforce security perimeters around APIs and services, restricting their access to a specified set of Google Cloud projects. In this scenario, the security constraint is focused on Compute Engine instances used by Dataflow, and VPC Service Controls might be considered a bit heavy-handed for just addressing the internal IP address requirement.
+---
+## Q254
+- Fusion optimization in Dataflow can lead to steps being "fused" together, which can sometimes hinder parallelization.
+- Introducing a Reshuffle step can prevent fusion and force the distribution of work across more workers.
+- This can be an effective way to improve parallelism and potentially trigger the autoscaler to increase the number of workers.
+Fusion occurs when multiple transformations are fused into a single stage, which can limit parallelism and hinder performance, especially in streaming pipelines. By introducing a Reshuffle step, you break fusion and allow for better parallelism.
+
+---
+## Q255
+- Datastream is a serverless and easy-to-use change data capture (CDC) and replication service.
+- You would create a Datastream service that sources from your Oracle database and targets BigQuery, with private connectivity configuration to
+the same VPC.
+- This option is designed to minimize the need to manage infrastructure and is a fully managed service.
+
+---
+## Q256
+###**Data Stream**
+Managed Service: Datastream is a fully managed change data capture (CDC) service that allows you to replicate and stream data from your Oracle database to BigQuery. This minimizes the operational overhead compared to deploying and managing your own infrastructure, such as Kafka.
+Continuous Synchronization: Datastream is specifically designed for continuous data replication, ensuring that your changes in the Oracle database are reflected in BigQuery in near real-time.
+Private Connectivity: Using a private connectivity configuration ensures secure communication between your Oracle database and BigQuery, adhering to network security best practices.
+
+
+
+
+
+
+
+
+
 
