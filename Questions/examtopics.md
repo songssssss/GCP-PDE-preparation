@@ -438,9 +438,28 @@ Same Region: Placing the failover replica in the same region ensures minimal lat
 Zone Resilience: Google Cloud's regional design ensures that zones within a region are independent of each other, which adds resilience to zone failures.
 Automatic Failover: In case of a primary instance failure, Cloud SQL will automatically promote the failover replica to become the new primary instance, minimizing downtime.
 
+---
+## Q21
+In BigQuery, when partitioning a table, you can only use **one column** to create partitioned tables. This column is typically a timestamp or date column, which allows you to effectively manage and query large datasets based on time.
 
+### Types of Partitioning:
 
+1. **Time-based Partitioning**: This is the most common method and is used with columns of type `DATE`, `DATETIME`, or `TIMESTAMP`. You can partition by day, month, or year.
 
+2. **Integer Range Partitioning**: You can also partition a table using an integer column. This method allows you to specify ranges of integer values.
+
+### Additional Considerations:
+
+- **Clustering**: While you can only partition by one column, you can apply clustering on additional columns. Clustering allows you to organize data within the partitions, which can improve query performance.
+
+- **Best Practices**: Choose a partitioning column that reduces the amount of data scanned during queries, optimizing both performance and cost.
+
+If you have further questions about partitioning strategies or any other BigQuery features, feel free to ask!
+---
+## Q215
+Analytics Hub can then be used to share this data securely and efficiently with the partner organization, maintaining control and governance over the shared data
+
+---
 
 
 
