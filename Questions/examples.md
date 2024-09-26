@@ -1,3 +1,23 @@
+
+
+Subject: Farewell and Thank You
+
+Dear Team,
+
+As I wrap up my last day here, I wanted to take a moment to express my heartfelt gratitude to each of you. Working alongside such a talented and dedicated group has been an incredible experience, and I will carry the memories of our time together with me.
+
+I am grateful for the support, encouragement, and countless laughs we've shared. Each of you has contributed to my journey in a meaningful way, and I appreciate everything I've learned from you.
+
+While I’m excited about the new opportunities ahead, I will truly miss the camaraderie and the daily interactions we’ve had. Please stay in touch! You can reach me at [your personal email] or connect with me on LinkedIn ([your LinkedIn profile link]).
+
+Thank you once again for everything. Wishing you all continued success and happiness!
+
+Warmest regards,
+
+[Your Name]
+
+
+
 ## Question 22
 
 Your financial services company is moving to cloud technology and wants to store 50 TB of financial time-series data in the cloud. This data is updated frequently and new data will be streaming in all the time. Your company also wants to move their existing Apache Hadoop jobs to the cloud to get insights into this data.
