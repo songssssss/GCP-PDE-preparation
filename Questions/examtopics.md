@@ -533,7 +533,16 @@ BigQuery Omni allows you to query data in Azure and AWS object stores directly w
 - BigLake Tables:
 Provide a unified view of both BigQuery tables and external object storage files, enabling seamless querying across multi-cloud data.
 
+---
+## Q223
+Native Integration:
+Dataform assertions are designed specifically for data quality checks within Dataform pipelines, ensuring seamless integration and compatibility.
+They leverage Dataform's execution model and configuration, aligning with the existing workflow.
+Declarative Syntax:
+Assertions are defined using a simple, declarative syntax within Dataform code, making them easy to write and understand, even for users with less SQL expertise.
 
+- Dataform provides a feature called "assertions," which are essentially SQL-based tests that you can define to verify the quality of your data.
+- Assertions in Dataform are a built-in way to perform data quality checks, including checking for uniqueness and null values in your tables.
 
 
 
