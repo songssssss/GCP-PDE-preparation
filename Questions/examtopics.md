@@ -661,6 +661,12 @@ Precomputed Results: Materialized views store precomputed results of complex que
 - Automatic Refresh: Enabling refresh with enable_refresh maintains view consistency with minimal maintenance overhead.
 - Minimal Overhead: Materialized views automatically update as underlying data changes, reducing maintenance compared to manual exports or view definitions.
 
+---
+## Q231
+If an Airflow worker pod is evicted, all task instances running on that pod are interrupted, and later marked as failed by Airflow. The majority of issues with worker pod evictions happen because of out-of-memory situations in workers.
+You might want to:
+- (D) Increase the memory available to workers.
+- (C) Reduce worker concurrency. In this way, a single worker handles fewer tasks at once. This provides more memory or storage to each individua task. If you change worker concurrency, you might also want to increase the maximum number of workers. In this way, the number of tasks that your environment can handle at once stays the same. For example, if you reduce worker Concurrency from 12 to 6, you might want to double the maximum number of workers.
 
 
 
