@@ -437,6 +437,9 @@ Failover Replica: By creating a failover replica in another zone within the same
 Same Region: Placing the failover replica in the same region ensures minimal latency and data consistency. In the event of a zone failure, the failover can happen within the same region, reducing potential downtime.
 Zone Resilience: Google Cloud's regional design ensures that zones within a region are independent of each other, which adds resilience to zone failures.
 Automatic Failover: In case of a primary instance failure, Cloud SQL will automatically promote the failover replica to become the new primary instance, minimizing downtime.
+---
+## Q212
+The best approach would be to check if there is a firewall rule allowing traffic on TCP ports 12345 and 12346 for the Dataflow network tag. Dataflow uses TCP ports 12345 and 12346 for communication between worker nodes. Using network tags and associated firewall rules is a Google recommended security practice for controlling access between Compute Engine instances like Dataflow workers.
 
 ---
 ## Q21
@@ -454,12 +457,24 @@ In BigQuery, when partitioning a table, you can only use **one column** to creat
 
 - **Best Practices**: Choose a partitioning column that reduces the amount of data scanned during queries, optimizing both performance and cost.
 
-If you have further questions about partitioning strategies or any other BigQuery features, feel free to ask!
+---
+## Q214
+The best option is B - Create a Standard Tier Memorystore for Redis instance in a development environment. Initiate a manual failover by using the
+force-data-loss data protection mode.
+The key points are:
+• The failover should be tested in a separate development environment, not production, to avoid impacting real data.
+• The force-data-loss mode will simulate a full failover and restart, which is the most accurate test of disaster recovery.
+• Limited-data-loss mode only fails over reads which does not fully test write capabilities.
+• Increasing replicas in production and failing over (C) risks losing real production data.
+• Failing over production (D) also risks impacting real data and traffic.
+So option B isolates the test from production and uses the most rigorous failover mode to fully validate disaster recovery capabilities.
 ---
 ## Q215
 Analytics Hub can then be used to share this data securely and efficiently with the partner organization, maintaining control and governance over the shared data
 
 ---
+
+
 
 
 
