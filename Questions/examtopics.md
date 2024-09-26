@@ -690,6 +690,17 @@ BigQuery for Analytics: BigQuery is an excellent choice for storing and analyzin
 Cloud SQL for Last State Data: Cloud SQL is a fully managed relational database that can effectively handle the storage of the last known state of products. Storing this subset of data (about 10 GB) in Cloud SQL allows for optimized and faster query performance for your API needs. Cloud SQL can comfortably handle the requirement of up to 1000 QPS with sub-second latency.
 Separation of Concerns: This approach separates the analytics workload (BigQuery) from the operational query workload (Cloud SQL). This separation ensures that analytics queries do not interfere with the operational performance of the API and vice versa.
 
+---
+## Q237
+- Programmatic Flexibility: Apache Beam provides extensive control over pipeline design, allowing for customization of data transformations, including integration with Cloud DLP for sensitive data masking.
+- Streaming and Batch Support: Beam seamlessly supports both streaming and batch data processing modes, enabling flexibility in data loading patterns.
+- Cost-Effective Processing: Dataflow offers a serverless model, scaling resources as needed, and only charging for resources used, helping optimize costs.
+- Integration with Cloud DLP: Beam integrates well with Cloud DLP for sensitive data masking, ensuring data privacy before loading into BigQuery.
+ datafusion is codeless solution and also dataflow is cost effective
+
+ ---
+ ## Q238
+Implement Authenticated Encryption with Associated Data (AEAD) BigQuery functions while storing your data in BigQuery.
 
 
 
