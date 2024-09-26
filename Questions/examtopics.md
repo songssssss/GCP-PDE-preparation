@@ -717,5 +717,10 @@ Implement Authenticated Encryption with Associated Data (AEAD) BigQuery function
 "When enabled, turbo replication is designed to replicate 100% of newly written objects to both regions that constitute the dual-region within the recovery point objective of 15 minutes, regardless of object size."
 Thus, since they want to minimize RPO, should use turbo replication
 
+---
+## Q242
+"When enabled, turbo replication is designed to replicate 100% of newly written objects to both regions that constitute the dual-region within the recovery point objective of 15 minutes, regardless of object size
+dual-region bucket WITHOUT turbo replication takes atleast 1 hour to sync data between regions. SLA for 100% data sync is 12 hours as per google.
 
-
+--- 
+## Q
