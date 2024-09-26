@@ -743,5 +743,8 @@ street addresses.
 The regular reporting doesn't justify a materialized view, since the frequency of access is not so high; a simple view would do the trick. Moreover, the vcpu data is in a nested field and requires Unnest.
 ---
 ## Q249
-
+- Autoclass automatically moves objects between storage classes without impacting performance or availability, nor incurring retrieval costs.
+- It continuously optimizes storage costs based on access patterns without the need to set specific lifecycle management policies.
+---
+#
 
