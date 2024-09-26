@@ -668,6 +668,27 @@ You might want to:
 - (D) Increase the memory available to workers.
 - (C) Reduce worker concurrency. In this way, a single worker handles fewer tasks at once. This provides more memory or storage to each individua task. If you change worker concurrency, you might also want to increase the maximum number of workers. In this way, the number of tasks that your environment can handle at once stays the same. For example, if you reduce worker Concurrency from 12 to 6, you might want to double the maximum number of workers.
 
+---
+## Q233
+- BigQuery provides administrative resource charts that show slot utilization and job performance, which can help identify patterns of heavy usage or contention.
+- Additionally, querying the `INFORMATION_SCHEMA` with the `JOBS` or `JOBS_BY_PROJECT` view can provide detailed information about specific queries, including execution time, slot usage, and whether they were queued.
+
+---
+## Q234
+
+D. 1. Store the historical data in BigQuery for analytics.
+2. In a Cloud SQL table, store the last state of the product after every product change.
+3. Serve the last state data directly from Cloud SQL to the AP
+This approach leverages BigQuery's scalability and efficiency for handling large datasets for analytics. BigQuery is well-suited for managing the 10
+PB of historical product data. Meanwhile, Cloud SQL provides the necessary performance to handle the API queries with the required low latency.
+By storing the latest state of each product in Cloud SQL, you can efficiently handle the high QPS with sub-second latency, which is crucial for the
+API's performance. This combination of BigQuery and Cloud SQL offers a balanced solution for both the large-scale analytics and the highperformance API needs.
+
+Serve the last state data directly from Cloud SQL to the API.
+Here's why this option is most suitable:
+BigQuery for Analytics: BigQuery is an excellent choice for storing and analyzing large datasets like your 10 PB of historical product data. It is designed for handling big data analytics efficiently and cost-effectively.
+Cloud SQL for Last State Data: Cloud SQL is a fully managed relational database that can effectively handle the storage of the last known state of products. Storing this subset of data (about 10 GB) in Cloud SQL allows for optimized and faster query performance for your API needs. Cloud SQL can comfortably handle the requirement of up to 1000 QPS with sub-second latency.
+Separation of Concerns: This approach separates the analytics workload (BigQuery) from the operational query workload (Cloud SQL). This separation ensures that analytics queries do not interfere with the operational performance of the API and vice versa.
 
 
 
