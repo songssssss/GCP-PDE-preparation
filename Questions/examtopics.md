@@ -740,7 +740,7 @@ street addresses.
 ## Q248
 - The table structure shows that the vCPU data is stored in a nested field within the components column.
 - Using the UNNEST operator to flatten the nested field and apply the filter.
-
+The regular reporting doesn't justify a materialized view, since the frequency of access is not so high; a simple view would do the trick. Moreover, the vcpu data is in a nested field and requires Unnest.
 ---
 ## Q249
 
