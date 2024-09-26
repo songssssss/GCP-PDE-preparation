@@ -545,7 +545,41 @@ Assertions are defined using a simple, declarative syntax within Dataform code, 
 - Assertions in Dataform are a built-in way to perform data quality checks, including checking for uniqueness and null values in your tables.
 
 
+---
+## Q224
+Processing Speed: This refers to how quickly individual messages (click events) are processed once they are read from the Pub/Sub topic. If the Dataflow job is able to process messages in less than 30 seconds, that means each message can be handled relatively quickly.
 
+Data Freshness: This refers to the time it takes for messages to go from being published to being available for consumption by downstream services (in this case, the advertising department). It considers the total time from when the event occurs to when the result is available to the consumer.
+
+Based on the scenario you've described, the most appropriate option is:
+
+### **C. Messages in your Dataflow job are processed in less than 30 seconds, but your job cannot keep up with the backlog in the Pub/Sub subscription. Optimize your job or increase the number of workers to fix this.**
+
+### Rationale:
+
+- **Processing Time vs. Freshness**: You mentioned that the Dataflow job's system lag is about 5 seconds, and data freshness is about 40 seconds. While individual messages may be processed in under 30 seconds, the cumulative effect of processing delays suggests that your job is not keeping up with the incoming message rate.
+
+- **Backlog**: The backlog in the Pub/Sub subscription indicates that messages are being produced faster than they are being processed. Even if each message is processed quickly, if the rate of incoming messages exceeds the processing capacity, it results in delays for the messages being sent to the advertising department.
+
+### Suggested Actions:
+
+1. **Optimize the Dataflow Job**: Review your transformations to ensure they are efficient. Look for any bottlenecks that could be improved.
+
+2. **Increase Workers**: Scaling up the number of workers in your Dataflow job can help improve throughput and reduce the time it takes to process the backlog.
+
+3. **Monitor Metrics**: Use monitoring tools to observe the metrics of your Dataflow job, such as processing time, backlog size, and throughput, to identify specific areas for improvement.
+
+### Why Not the Others?
+
+- **A**: There’s no indication that the advertising department is causing delays, as the issue seems to lie with the processing capacity of the Dataflow job.
+
+- **B**: While optimizing the job or increasing workers can help, the main issue appears to be related to the backlog rather than processing time exceeding 30 seconds.
+
+- **D**: There’s no evidence provided that the web server isn’t pushing messages fast enough; the problem seems to be with message consumption rather than production.
+
+### Summary
+
+Option C addresses the core issue of backlog and processing capacity, which is critical for ensuring timely delivery of messages to the advertising department. If you have further questions or need more clarification, feel free to ask!
 
 
 
