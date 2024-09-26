@@ -581,10 +581,32 @@ Based on the scenario you've described, the most appropriate option is:
 
 Option C addresses the core issue of backlog and processing capacity, which is critical for ensuring timely delivery of messages to the advertising department. If you have further questions or need more clarification, feel free to ask!
 
+---
+## Q226
+VPC Service Controls are a security feature in Google Cloud that allows you to define a security perimeter around your Google Cloud resources to help mitigate data exfiltration risks. The differences between the two options you provided relate to the scope and application of the VPC Service Controls.
 
+### A. Configure VPC Service Controls in the organization with a perimeter around the VPC of project A.
 
+- **Scope**: This option sets the security perimeter specifically around the VPC network that is associated with Project A.
+- **Focus**: It restricts access to resources based on the VPC. Resources within this VPC can have additional security measures to prevent unauthorized access or data exfiltration, focusing on network-level isolation.
+- **Use Case**: Useful if your primary concern is securing resources at the network level, especially when there are multiple projects that share VPCs or if you have specific VPC configurations that you want to protect.
 
+### B. Configure VPC Service Controls in the organization with a perimeter around project A.
 
+- **Scope**: This option sets the security perimeter around all resources within Project A, regardless of the VPC configuration.
+- **Focus**: It restricts access to all resources in Project A, including data stored in Google Cloud services like BigQuery, Cloud Storage, etc., ensuring that these resources can only be accessed by authorized users and services.
+- **Use Case**: Ideal for a broader security approach, ensuring that all data and resources within the project are protected, irrespective of the VPC setup.
+
+### Summary of Differences
+
+- **Level of Security**: Option A focuses on securing the VPC and associated resources at the network level, while Option B focuses on securing all resources within Project A, regardless of their VPC configuration.
+- **Resource Coverage**: Option A is specific to the VPC’s configurations and security, whereas Option B covers all resources in the project, including those that may not be directly related to the VPC.
+- **Complexity and Flexibility**: Option A may allow for more granular control over network traffic, while Option B provides a simpler, more comprehensive security model for all project resources.
+
+Choosing between these options depends on your security needs and architecture. If you have more questions or need further clarification, feel free to ask!
+
+---
+## Q22
 
 
 
