@@ -648,9 +648,18 @@ In the context of Google Cloud Pub/Sub, **seek** is a feature that allows you to
 Seek is a powerful feature that enhances the flexibility and robustness of message processing in Pub/Sub, allowing you to handle data changes and processing errors efficiently. If you have any more questions about this or related topics, feel free to ask!
 
 ---
-## Q2
+## Q229
 
+https://cloud.google.com/bigquery/docs/materialized-views-create#non-incremental
+In scenarios where data staleness is acceptable, for example for batch data processing or reporting, non-incremental materialized views can improve query performance and reduce cost.
+`allow_non_incremental_definition` option. This option must be accompanied by the `max_staleness` option. To ensure a periodic refresh of the materialized view, you should also configure a refresh policy.
+ data staleness and is better suited for heavy querying, thanks to the `allow_non_incremental_definition`
+Precomputed Results: Materialized views store precomputed results of complex queries, significantly accelerating subsequent query performance, addressing the slow visualization issue.
 
+- Allow Non-Incremental Views: Using allow_non_incremental_definition circumvents the limitation of incremental updates for outer joins and analytic functions, ensuring views can be created for the specified queries.
+- Near-Real-Time Data: Setting max_staleness to 4 hours guarantees data freshness within the acceptable latency for visualizations.
+- Automatic Refresh: Enabling refresh with enable_refresh maintains view consistency with minimal maintenance overhead.
+- Minimal Overhead: Materialized views automatically update as underlying data changes, reducing maintenance compared to manual exports or view definitions.
 
 
 
