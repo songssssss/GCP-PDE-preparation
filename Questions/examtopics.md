@@ -789,8 +789,14 @@ Private Connectivity: Using a private connectivity configuration ensures secure 
 - Cloud Data Fusion is a fully managed, code-free, GUI-based data integration service that allows you to visually connect, transform, and move dat between various sources and sinks. - It supports various file formats and can write to Cloud Storage.
 - You can configure it to use Customer-Managed Encryption Keys (CMEK) for the buckets where it writes data.
 
+---
+## Q270
 
-
+- It provides a direct and controlled way to manage the SQL pipeline using Cloud Composer (Apache Airflow).
+- The BigQueryInsertJobOperator is well-suited for running SQL jobs in BigQuery, including aggregate transformations and handling of results.
+- The retry and email_on_failure parameters align with the requirements for error handling and notifications.
+- Cloud Composer requires more setup than using BigQuery's scheduled queries directly, but it offers robust workflow management, retry logic,
+and notification capabilities, making it suitable for more complex and controlled data pipeline requirements.
 
 
 
