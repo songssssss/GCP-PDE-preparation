@@ -850,6 +850,9 @@ Google Cloud Platform (GCP) offers several low-latency products designed to meet
 These products are designed to minimize latency and enhance performance for applications that require rapid data access and processing capabilities. Choosing the right product depends on your specific use case, data model, and architectural requirements. If you have further questions about any specific product, feel free to ask!
 
 ---
-## Q2
+## Q278
+- Exception Handling in DoFn: Implementing an exception handling block within DoFn in Dataflow to catch failures during processing is a direct way to manage errors.
+- Side Output to New Topic: Using a side output to redirect failed messages to a new Pub/Sub topic is an effective way to isolate and manage thes messages.
+- Monitoring: Monitoring the num_unacked_messages_by_region on the new topic can alert you to the presence of failed messages.
 
 
