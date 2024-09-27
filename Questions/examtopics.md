@@ -861,6 +861,11 @@ These products are designed to minimize latency and enhance performance for appl
 - Allow Late Data: configure the pipeline to accept and correctly process data that arrives after the watermark, ensuring it's captured in the appropriate window.
 
 ---
+## Q281
+"Garbage collection is a continuous process in which Bigtable checks the rules for each column family and deletes expired and obsolete data accordingly. In general, it can take up to a week from the time that data matches the criteria in the rules for the data to actually be deleted. You are not able to change the timing of garbage collection."
+**"Always apply a filter to your read requests that exclude the same values as your garbage collection rules. "**
+
+---
 ## Q282
 - BigQuery Storage Write API: This API is designed for high-throughput, low-latency writing of data into BigQuery. It also provides tools to prevent data duplication, which is essential for exactly-once delivery semantics.
 - Regional Table: Choosing a regional location for the BigQuery table could potentially provide better performance and lower latency, as it would be closer to the Dataflow job if they are in the same region
