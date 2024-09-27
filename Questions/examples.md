@@ -4,11 +4,13 @@ Subject: Farewell and Thank You
 
 Dear Team,
 
-As I wrap up my last day here, I wanted to take a moment to express my heartfelt gratitude to each of you. Working alongside such a talented and dedicated group has been an incredible experience, and I will carry the memories of our time together with me.
+Today is my last day here, and I wanted to take a moment to express my heartfelt gratitude to each of you. 
 
-I am grateful for the support, encouragement, and countless laughs we've shared. Each of you has contributed to my journey in a meaningful way, and I appreciate everything I've learned from you.
+Working alongside each of you has been an enriching journey filled with laughter, challenges, and growth. Your support, kindness, and guidance have made this experience truly unforgettable, and I appreciate everything I've learned from you through our collaboration on various audit projects.
 
-While I’m excited about the new opportunities ahead, I will truly miss the camaraderie and the daily interactions we’ve had. Please stay in touch! You can reach me at [your personal email] or connect with me on LinkedIn ([your LinkedIn profile link]).
+Before I depart, I have prepared a special treat for all of you - pastries made of roses and jasmine from my hometown. I have placed them on the snack table and I hope you enjoy these unique flavors.
+
+While I move forward on my path, I will truly miss these days. Please stay in touch! You can reach me at songzwviola@gmail.com, +852 56031042, or connect with me on LinkedIn ([your LinkedIn profile link]).
 
 Thank you once again for everything. Wishing you all continued success and happiness!
 
@@ -16,6 +18,23 @@ Warmest regards,
 
 [Your Name]
 
+---
+Subject: Farewell and Thank You
+
+Dear Team,
+
+As I wrap up my last day here, I wanted to take a moment to express my heartfelt gratitude to each of you. 
+
+Working alongside each of you has been an enriching journey filled with laughter, challenges, and growth. Your support, kindness, and guidance have made this experience truly unforgettable, and I appreciate everything I've learned from you through our collaboration on various audit projects.
+
+While I move forward on my path, I will truly miss these days. Please stay in touch! You can reach me at songzwviola@gmail.com, WeChat account zwsongjy7, or connect with me on LinkedIn ([your LinkedIn profile link]).
+
+Thank you once again for everything. Wishing you all continued success and happiness!
+
+Warmest regards,
+
+[Your Name]
+---
 
 
 ## Question 22
