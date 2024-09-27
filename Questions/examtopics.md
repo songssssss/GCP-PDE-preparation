@@ -855,4 +855,12 @@ These products are designed to minimize latency and enhance performance for appl
 - Side Output to New Topic: Using a side output to redirect failed messages to a new Pub/Sub topic is an effective way to isolate and manage thes messages.
 - Monitoring: Monitoring the num_unacked_messages_by_region on the new topic can alert you to the presence of failed messages.
 
+---
+## Q279
+- Watermarks: Watermarks in a streaming pipeline are used to specify the point in time when Dataflow expects all data up to that point to have arrived.
+- Allow Late Data: configure the pipeline to accept and correctly process data that arrives after the watermark, ensuring it's captured in the appropriate window.
 
+---
+## Q282
+- BigQuery Storage Write API: This API is designed for high-throughput, low-latency writing of data into BigQuery. It also provides tools to prevent data duplication, which is essential for exactly-once delivery semantics.
+- Regional Table: Choosing a regional location for the BigQuery table could potentially provide better performance and lower latency, as it would be closer to the Dataflow job if they are in the same region
