@@ -874,3 +874,9 @@ These products are designed to minimize latency and enhance performance for appl
 ## Q283
 - BigLake Table: BigLake allows for more efficient querying of data lakes stored in Cloud Storage. It can handle large datasets more effectively than standard external tables.
 - Metadata Caching: Enabling metadata caching can significantly improve query performance by reducing the time taken to read and process metadata from a large number of files.
+
+---
+## Q290
+- Exponential Backoff: This retry policy gradually increases the delay between retries, which helps to avoid overloading the consumer app.
+- Dead Lettering to a Different Topic: Configuring dead lettering sends messages that couldn't be processed after the specified number of delivery attempts (10 in this case) to a separate topic. This allows for handling of failed messages without interrupting the regular flow of new messages.
+- Maximum Delivery Attempts Set to 10: This setting ensures that the system retries each message up to 10 times before considering it a failure and moving it to the dead letter topic.
