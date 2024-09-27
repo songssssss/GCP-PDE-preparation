@@ -798,6 +798,15 @@ Private Connectivity: Using a private connectivity configuration ensures secure 
 - Cloud Composer requires more setup than using BigQuery's scheduled queries directly, but it offers robust workflow management, retry logic,
 and notification capabilities, making it suitable for more complex and controlled data pipeline requirements.
 
+---
+## Q276 
+- Specifying a worker region (instead of a specific zone) allows Google Cloud's Dataflow service to manage the distribution of resources across multiple zones within that region
+
+---
+## 277
+- Hopping Window: Hopping windows are fixed-sized, overlapping intervals.
+- Aggregate data over the last 30 seconds, every 2 seconds, as hopping windows allow for overlapping data analysis.
+- Memorystore: Ideal for low-latency access required for real-time visualization and analysis.
 
 
 
