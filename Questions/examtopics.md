@@ -880,3 +880,9 @@ These products are designed to minimize latency and enhance performance for appl
 - Exponential Backoff: This retry policy gradually increases the delay between retries, which helps to avoid overloading the consumer app.
 - Dead Lettering to a Different Topic: Configuring dead lettering sends messages that couldn't be processed after the specified number of delivery attempts (10 in this case) to a separate topic. This allows for handling of failed messages without interrupting the regular flow of new messages.
 - Maximum Delivery Attempts Set to 10: This setting ensures that the system retries each message up to 10 times before considering it a failure and moving it to the dead letter topic.
+
+
+- Topic Retention Policy: This policy determines how long messages are retained by Pub/Sub after they are published, even if they have not been
+acknowledged (consumed) by any subscriber.
+- 30 Days Retention: By setting the retention policy of the topic to 30 days, all messages published to this topic will be available for consumption
+for 30 days. This means any new subscriber connecting to the topic can access and analyze data from the past 30 days.
